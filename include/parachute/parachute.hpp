@@ -9,6 +9,6 @@
 #include <future>
 
 // Parachute
+#include <parachute/non_blocking_future.hpp>
 #include <parachute/pool.hpp>
 #include <parachute/post.hpp>
-#include <parachute/non_blocking_future.hpp>

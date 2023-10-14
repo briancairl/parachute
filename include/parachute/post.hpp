@@ -6,12 +6,12 @@
 #pragma once
 
 // C++ Standard Library
-#include <type_traits>
 #include <exception>
+#include <type_traits>
 
 namespace std
 {
-template<typename T> class promise;
+template <typename T> class promise;
 }  // namespace std
 
 namespace para
@@ -22,15 +22,16 @@ template <typename T> class non_blocking_promise;
 
 namespace strategy
 {
-  template <typename T> using blocking = ::std::promise<T>;
-  template <typename T> using non_blocking = non_blocking_promise<T>;
+template <typename T> using blocking = ::std::promise<T>;
+template <typename T> using non_blocking = non_blocking_promise<T>;
 }  // namespace strategy
 
 /**
  * @brief Enqueues work to a work pool and returns a tracker for that work
  */
 template <
-  template<typename> class PromiseTmpl,
+  template <typename>
+  class PromiseTmpl,
   typename WorkGroupT,
   typename WorkQueueT,
   typename WorkPoolOptionsT,
@@ -40,35 +41,32 @@ template <
 {
   auto p = new PromiseTmpl<ResultT>{};
   auto f = p->get_future();
-  wp.emplace(
-    [p, w = std::forward<WorkT>(work)]() mutable {
-      try
+  wp.emplace([p, w = std::forward<WorkT>(work)]() mutable {
+    try
+    {
+      if constexpr (std::is_same_v<ResultT, void>)
       {
-        if constexpr (std::is_same_v<ResultT, void>)
-        {
-          w();
-          p->set_value();
-        }
-        else
-        {
-          p->set_value(w());
-        }
+        w();
+        p->set_value();
       }
-      catch (...)
+      else
       {
-        p->set_exception(std::current_exception());
+        p->set_value(w());
       }
-      delete p;
     }
-  );
+    catch (...)
+    {
+      p->set_exception(std::current_exception());
+    }
+    delete p;
+  });
   return f;
 }
 
 /**
  * @brief Enqueues work to a work pool and returns a tracker for that work
  */
-template <typename PoolT, typename WorkT>
-[[nodiscard]] decltype(auto) post(PoolT&& pool, WorkT&& work)
+template <typename PoolT, typename WorkT> [[nodiscard]] decltype(auto) post(PoolT&& pool, WorkT&& work)
 {
   return post<strategy::blocking>(std::forward<PoolT>(pool), std::forward<WorkT>(work));
 }

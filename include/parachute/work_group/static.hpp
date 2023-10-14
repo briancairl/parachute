@@ -30,7 +30,7 @@ public:
    */
   template <typename WorkLoopFnT> explicit work_group_static(WorkLoopFnT f)
   {
-    work_group_static::each([f](auto& t) { t = std::thread{f}; });
+    work_group_static::each([f](auto& t) { t = std::thread{ f }; });
   }
 
   /**
@@ -63,7 +63,8 @@ public:
   /**
    * @brief Starts worker running work callback \c f
    */
-  template <typename WorkLoopFnT> explicit work_group_static(WorkLoopFnT&& f) : worker_{std::forward<WorkLoopFnT>(f)} {}
+  template <typename WorkLoopFnT> explicit work_group_static(WorkLoopFnT&& f) : worker_{ std::forward<WorkLoopFnT>(f) }
+  {}
 
   /**
    * @brief Waits for work thread to join

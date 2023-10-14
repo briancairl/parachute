@@ -26,7 +26,7 @@ public:
    */
   [[nodiscard]] WorkStorageT pop()
   {
-    WorkStorageT next_job{std::move(c_.front())};
+    WorkStorageT next_job{ std::move(c_.front()) };
     c_.pop_front();
     return next_job;
   }

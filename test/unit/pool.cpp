@@ -5,17 +5,17 @@
  */
 
 // C++ Standard Library
+#include <chrono>
 #include <future>
 #include <thread>
-#include <chrono>
 
 // GTest
 #include <gtest/gtest.h>
 
 // Parachute
+#include <parachute/non_blocking_future.hpp>
 #include <parachute/pool.hpp>
 #include <parachute/post.hpp>
-#include <parachute/non_blocking_future.hpp>
 
 using namespace para;
 
@@ -25,7 +25,8 @@ template <typename T> class WorkerPoolTestSuite : public ::testing::Test
 public:
 };
 
-using WorkerPoolTestSuiteTypes = ::testing::Types<worker, worker_strict, static_pool<4>, static_pool_strict<4>, pool, pool_strict>;
+using WorkerPoolTestSuiteTypes =
+  ::testing::Types<worker, worker_strict, static_pool<4>, static_pool_strict<4>, pool, pool_strict>;
 
 TYPED_TEST_SUITE(WorkerPoolTestSuite, WorkerPoolTestSuiteTypes);
 

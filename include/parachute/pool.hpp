@@ -6,11 +6,11 @@
 #pragma once
 
 // Parachute
+#include <parachute/pool_base.hpp>
 #include <parachute/work_group/dynamic.hpp>
 #include <parachute/work_group/static.hpp>
 #include <parachute/work_queue/fifo.hpp>
 #include <parachute/work_queue/lifo.hpp>
-#include <parachute/pool_base.hpp>
 
 namespace para
 {
@@ -21,9 +21,9 @@ namespace para
 struct work_control_default
 {
 public:
-  template<typename WorkQueueT>
-  constexpr bool check([[maybe_unused]] WorkQueueT&& ignored) { return working_; }
+  template <typename WorkQueueT> constexpr bool check([[maybe_unused]] WorkQueueT&& ignored) { return working_; }
   constexpr void stop() { working_ = false; }
+
 private:
   bool working_ = true;
 };
@@ -34,9 +34,9 @@ private:
 struct work_control_strict
 {
 public:
-  template<typename WorkQueueT>
-  constexpr bool check(WorkQueueT&& queue) { return working_ or !queue.empty(); }
+  template <typename WorkQueueT> constexpr bool check(WorkQueueT&& queue) { return working_ or !queue.empty(); }
   constexpr void stop() { working_ = false; }
+
 private:
   bool working_ = true;
 };
@@ -55,8 +55,7 @@ using worker_strict = pool_base<work_group_static<1>, work_queue_lifo<>, work_co
 /**
  * @brief A multi-threaded worker; thread count decided at compile-time
  */
-template <std::size_t N>
-using static_pool = pool_base<work_group_static<N>, work_queue_lifo<>, work_control_default>;
+template <std::size_t N> using static_pool = pool_base<work_group_static<N>, work_queue_lifo<>, work_control_default>;
 
 /**
  * @copydoc static_pool

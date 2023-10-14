@@ -28,36 +28,35 @@ public:
    * <code>WorkGroupT{loop_fn, work_group_args...}</code>
    */
   template <typename... WorkGroupArgTs>
-  explicit pool_base(WorkControlT&& work_control, WorkGroupArgTs&&... work_group_args) :
-      worker_control_{std::move(work_control)},
-      workers_{
-        [this]() {
-          std::unique_lock lock{work_queue_mutex_};
-          // Keep doing work until stopped
-          while (worker_control_.check(work_queue_))
-          {
-            if (work_queue_.empty())
-            {
-              // If no work is available, wait for emplace
-              work_queue_cv_.wait(lock);
-            }
-            else
-            {
-              // Get next work to do
-              auto next_to_run = work_queue_.pop();
+  explicit pool_base(WorkControlT&& work_control, WorkGroupArgTs&&... work_group_args)
+      : worker_control_{ std::move(work_control) }
+      , workers_{ [this]() {
+                   std::unique_lock lock{ work_queue_mutex_ };
+                   // Keep doing work until stopped
+                   while (worker_control_.check(work_queue_))
+                   {
+                     if (work_queue_.empty())
+                     {
+                       // If no work is available, wait for emplace
+                       work_queue_cv_.wait(lock);
+                     }
+                     else
+                     {
+                       // Get next work to do
+                       auto next_to_run = work_queue_.pop();
 
-              // Unlock queue lock
-              lock.unlock();
+                       // Unlock queue lock
+                       lock.unlock();
 
-              // Do the work
-              next_to_run();
+                       // Do the work
+                       next_to_run();
 
-              // Lock queue lock
-              lock.lock();
-            }
-          }
-        },
-        std::forward<WorkGroupArgTs>(work_group_args)...}
+                       // Lock queue lock
+                       lock.lock();
+                     }
+                   }
+                 },
+                  std::forward<WorkGroupArgTs>(work_group_args)... }
   {}
 
   /**
@@ -67,8 +66,8 @@ public:
    * <code>WorkGroupT{loop_fn, work_group_args...}</code>
    */
   template <typename... WorkGroupArgTs>
-  explicit pool_base(WorkGroupArgTs&&... work_group_args) :
-    pool_base{WorkControlT{}, std::forward<WorkGroupArgTs>(work_group_args)...}
+  explicit pool_base(WorkGroupArgTs&&... work_group_args)
+      : pool_base{ WorkControlT{}, std::forward<WorkGroupArgTs>(work_group_args)... }
   {}
 
   /**
@@ -78,7 +77,7 @@ public:
   {
     // Adds work under lock
     {
-      std::lock_guard lock{work_queue_mutex_};
+      std::lock_guard lock{ work_queue_mutex_ };
       work_queue_.enqueue(std::forward<WorkT>(work));
     }
     // Signal that work is available
@@ -89,7 +88,7 @@ public:
   {
     // Stop work loop under look
     {
-      std::lock_guard lock{work_queue_mutex_};
+      std::lock_guard lock{ work_queue_mutex_ };
       worker_control_.stop();
     }
     // Unblock any active waits

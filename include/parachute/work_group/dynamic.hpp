@@ -25,10 +25,10 @@ public:
    * @brief Starts all workers running work callback \c f
    */
   template <typename WorkLoopFnT>
-  explicit work_group_dynamic(WorkLoopFnT f, const std::size_t n_workers = std::thread::hardware_concurrency()) :
-      workers_{std::make_unique<std::thread[]>(n_workers)}, n_workers_{n_workers}
+  explicit work_group_dynamic(WorkLoopFnT f, const std::size_t n_workers = std::thread::hardware_concurrency())
+      : workers_{ std::make_unique<std::thread[]>(n_workers) }, n_workers_{ n_workers }
   {
-    work_group_dynamic::each([f](auto& t) { t = std::thread{f}; });
+    work_group_dynamic::each([f](auto& t) { t = std::thread{ f }; });
   }
 
   /**

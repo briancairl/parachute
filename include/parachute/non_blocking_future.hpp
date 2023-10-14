@@ -7,8 +7,8 @@
 
 // C++ Standard Library
 #include <atomic>
-#include <exception>
 #include <cstddef>
+#include <exception>
 #include <mutex>
 #include <type_traits>
 
@@ -23,7 +23,8 @@ enum class non_blocking_future_errc
   promise_already_satisfied
 };
 
-struct non_blocking_future_error {
+struct non_blocking_future_error
+{
   non_blocking_future_errc error;
 };
 
@@ -52,10 +53,7 @@ public:
   /**
    * @brief Sets current exception
    */
-  void set(std::exception_ptr&& ex)
-  {
-    current_exception_ = std::move(ex);
-  }
+  void set(std::exception_ptr&& ex) { current_exception_ = std::move(ex); }
 
   /**
    * @brief Sets ready state
@@ -64,7 +62,7 @@ public:
   {
     if (result_ready_flag_)
     {
-      throw non_blocking_future_error{non_blocking_future_errc::promise_already_satisfied};
+      throw non_blocking_future_error{ non_blocking_future_errc::promise_already_satisfied };
     }
     result_ready_flag_ = true;
   }
@@ -82,7 +80,7 @@ public:
 
     if (!result_ready_flag_)
     {
-      throw non_blocking_future_error{non_blocking_future_errc::no_state};
+      throw non_blocking_future_error{ non_blocking_future_errc::no_state };
     }
     result_ready_flag_ = false;
   }
@@ -108,18 +106,15 @@ public:
   /**
    * @brief Sets current exception
    */
-  void set(std::exception_ptr&& ex)
-  {
-    result_signal_.set(std::move(ex));
-  }
+  void set(std::exception_ptr&& ex) { result_signal_.set(std::move(ex)); }
 
   /**
    * @brief Sets value
    */
   void set(T&& result) noexcept(false)
   {
-    std::lock_guard lock{result_mutex_};
-    new(data()) T{std::move(result)};
+    std::lock_guard lock{ result_mutex_ };
+    new (data()) T{ std::move(result) };
     result_signal_.set();
   }
 
@@ -128,8 +123,8 @@ public:
    */
   T get() noexcept(false)
   {
-    std::lock_guard lock{result_mutex_};
-    T result_returned{std::move(*data())};
+    std::lock_guard lock{ result_mutex_ };
+    T result_returned{ std::move(*data()) };
     data()->~T();
     result_signal_.get();
     return result_returned;
@@ -157,7 +152,7 @@ public:
   /**
    * @brief Creates a non_blocking_promise_common with unfulfilled result value
    */
-  non_blocking_promise_common() : state_{new detail::non_blocking_shared_state<T>{}}, owning_{true} {}
+  non_blocking_promise_common() : state_{ new detail::non_blocking_shared_state<T>{} }, owning_{ true } {}
 
   /**
    * @brief Returns handle to shared work state
@@ -167,16 +162,11 @@ public:
   /**
    * @brief Sets active exception
    */
-  void set_exception(std::exception_ptr ex)
-  {
-    state_->set(std::move(ex));
-  }  
+  void set_exception(std::exception_ptr ex) { state_->set(std::move(ex)); }
 
   non_blocking_promise_common(const non_blocking_promise_common&) = delete;
 
-  non_blocking_promise_common(non_blocking_promise_common&& other)
-    : state_{other.state_}
-    , owning_{other.owning_}
+  non_blocking_promise_common(non_blocking_promise_common&& other) : state_{ other.state_ }, owning_{ other.owning_ }
   {
     other.state_ = nullptr;
     other.owning_ = false;
@@ -207,6 +197,7 @@ protected:
 template <typename T> class non_blocking_future
 {
   friend class detail::non_blocking_promise_common<T>;
+
 public:
   /**
    * @brief Returns true if value held by future is valid
@@ -222,11 +213,7 @@ public:
 
   non_blocking_future(const non_blocking_future&) = delete;
 
-  non_blocking_future(non_blocking_future&& other) :
-    state_{other.state_}
-  {
-    other.state_ = nullptr;
-  }
+  non_blocking_future(non_blocking_future&& other) : state_{ other.state_ } { other.state_ = nullptr; }
 
   ~non_blocking_future()
   {
@@ -242,8 +229,7 @@ private:
    *
    * @note only accessible by non_blocking_promise<T>
    */
-  explicit non_blocking_future(detail::non_blocking_shared_state<T>* shared_state) :
-      state_{shared_state} {};
+  explicit non_blocking_future(detail::non_blocking_shared_state<T>* shared_state) : state_{ shared_state } {};
 
   /// Shared result state
   detail::non_blocking_shared_state<T>* state_;
@@ -264,7 +250,7 @@ template <typename T> struct non_blocking_promise : public detail::non_blocking_
 
 /**
  * @copydock non_blocking_promise
- * @note 
+ * @note
  */
 template <> struct non_blocking_promise<void> : public detail::non_blocking_promise_common<void>
 {
@@ -274,16 +260,15 @@ template <> struct non_blocking_promise<void> : public detail::non_blocking_prom
   void set_value() { this->state_->set(); }
 };
 
-template<typename T>
-non_blocking_future<T> detail::non_blocking_promise_common<T>::get_future() noexcept(false)
+template <typename T> non_blocking_future<T> detail::non_blocking_promise_common<T>::get_future() noexcept(false)
 {
   if (!owning_)
   {
-    throw non_blocking_future_error{non_blocking_future_errc::no_state};
+    throw non_blocking_future_error{ non_blocking_future_errc::no_state };
   }
   auto* const transferred_state = state_;
   owning_ = false;
-  return non_blocking_future<T>{transferred_state};
+  return non_blocking_future<T>{ transferred_state };
 }
 
 }  // namespace para

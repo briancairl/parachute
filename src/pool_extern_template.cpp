@@ -3,7 +3,7 @@
 
 #ifndef PARACHUTE_COMPILED
 #error "expecting PARACHUTE_COMPILED to be defined"
-#endif // PARACHUTE_COMPILED
+#endif  // PARACHUTE_COMPILED
 
 namespace para
 {
