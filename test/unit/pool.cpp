@@ -88,7 +88,7 @@ TYPED_TEST(WorkerPoolTestSuite, PostBlocking)
 
   pool_type wp;
 
-  auto tracker = post<strategy::blocking>(wp, [] { return 1; });
+  auto tracker = post(wp, [] { return 1; });
 
   ASSERT_EQ(tracker.get(), 1);
 }

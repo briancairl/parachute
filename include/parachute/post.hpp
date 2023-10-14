@@ -64,4 +64,13 @@ template <
   return f;
 }
 
+/**
+ * @brief Enqueues work to a work pool and returns a tracker for that work
+ */
+template <typename PoolT, typename WorkT>
+[[nodiscard]] decltype(auto) post(PoolT&& pool, WorkT&& work)
+{
+  return post<strategy::blocking>(std::forward<PoolT>(pool), std::forward<WorkT>(work));
+}
+
 }  // namespace para
