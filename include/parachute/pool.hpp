@@ -5,249 +5,15 @@
  */
 #pragma once
 
-// C++ Standard Library
-#include <algorithm>
-#include <array>
-#include <condition_variable>
-#include <deque>
-#include <functional>
-#include <future>
-#include <memory>
-#include <mutex>
-#include <thread>
-#include <vector>
+// Parachute
+#include <parachute/work_group/dynamic.hpp>
+#include <parachute/work_group/static.hpp>
+#include <parachute/work_queue/fifo.hpp>
+#include <parachute/work_queue/lifo.hpp>
+#include <parachute/pool_base.hpp>
 
 namespace para
 {
-
-/**
- * @brief Managers N threads of execution, decided at compile-time, each of which run an identical work-loop
- *
- * Joins threads on destruction
- *
- * @tparam N  thread count
- */
-template <std::size_t N> class work_group
-{
-public:
-  /**
-   * @brief Starts all workers running work callback \c f
-   */
-  template <typename WorkLoopFnT> explicit work_group(WorkLoopFnT f)
-  {
-    work_group::each([f](auto& t) { t = std::thread{f}; });
-  }
-
-  /**
-   * @brief Waits for all work threads to join
-   */
-  ~work_group()
-  {
-    work_group::each([](auto& t) { t.join(); });
-  }
-
-private:
-  /// Executes a callback on each worker thread
-  template <typename UnaryFnT> void each(UnaryFnT&& fn)
-  {
-    std::for_each(workers_.begin(), workers_.end(), std::forward<UnaryFnT>(fn));
-  }
-
-  /// Worker threads
-  std::array<std::thread, N> workers_;
-};
-
-/**
- * @brief Managers N threads of execution, decided at runtime, each of which run an identical work-loop
- *
- * Joins threads on destruction
- */
-template <> class work_group<0>
-{
-public:
-  /**
-   * @brief Starts all workers running work callback \c f
-   */
-  template <typename WorkLoopFnT>
-  explicit work_group(WorkLoopFnT f, const std::size_t n_workers = std::thread::hardware_concurrency()) :
-      workers_{std::make_unique<std::thread[]>(n_workers)}, n_workers_{n_workers}
-  {
-    work_group::each([f](auto& t) { t = std::thread{f}; });
-  }
-
-  /**
-   * @brief Waits for all work threads to join
-   */
-  ~work_group()
-  {
-    work_group::each([](auto& t) { t.join(); });
-  }
-
-private:
-  /// Executes a callback on each worker thread
-  template <typename UnaryFnT> void each(UnaryFnT&& fn)
-  {
-    std::for_each(workers_.get(), workers_.get() + n_workers_, std::forward<UnaryFnT>(fn));
-  }
-
-  /// Worker threads
-  std::unique_ptr<std::thread[]> workers_;
-  /// Worker thread count
-  std::size_t n_workers_;
-};
-
-/**
- * @brief Managers 1 thread of execution which runs a work-loop
- *
- * Joins threads on destruction
- */
-template <> class work_group<1>
-{
-public:
-  /**
-   * @brief Starts worker running work callback \c f
-   */
-  template <typename WorkLoopFnT> explicit work_group(WorkLoopFnT&& f) : worker_{std::forward<WorkLoopFnT>(f)} {}
-
-  /**
-   * @brief Waits for work thread to join
-   */
-  ~work_group() { worker_.join(); }
-
-private:
-  /// Worker thread
-  std::thread worker_;
-};
-
-/**
- * @brief Represents a default, FIFO work queue
- */
-template <typename WorkStorageT = std::function<void()>, typename WorkStorageAllocatorT = std::allocator<WorkStorageT>>
-class work_queue_lifo_default
-{
-public:
-  /**
-   * @brief Returns next job to run
-   * @warning behavior is undefined if <code>empty() == true</code>
-   */
-  WorkStorageT pop()
-  {
-    WorkStorageT next_job{std::move(c_.front())};
-    c_.pop_front();
-    return next_job;
-  }
-
-  /**
-   * @brief Adds new \c work to the queue
-   */
-  template <typename WorkT> void enqueue(WorkT&& work) { c_.emplace_back(std::forward<WorkT>(work)); }
-
-  /**
-   * @brief Returns true if queue contains no work
-   */
-  constexpr bool empty() const { return c_.empty(); }
-
-private:
-  /// Underlying queue storage
-  std::deque<WorkStorageT, WorkStorageAllocatorT> c_;
-};
-
-/**
- * @brief Represents a pool of 1 of workers (typically threads) which participate in executing enqueued work
- */
-template <typename WorkGroupT, typename WorkQueueT, typename WorkControlT> class pool_base
-{
-public:
-  /**
-   * @brief Initializes workers
-   *
-   * @param work_control  controls how thread pool behavior around work completion
-   * @param work_group_args...  arguments, other than work loop callback, used to setup work group, i.e.
-   * <code>WorkGroupT{loop_fn, work_group_args...}</code>
-   */
-  template <typename... WorkGroupArgTs>
-  explicit pool_base(WorkControlT&& work_control, WorkGroupArgTs&&... work_group_args) :
-      worker_control_{std::move(work_control)},
-      workers_{
-        [this]() {
-          std::unique_lock lock{work_queue_mutex_};
-          // Keep doing work until stopped
-          while (worker_control_.check(work_queue_))
-          {
-            if (work_queue_.empty())
-            {
-              // If no work is available, wait for emplace
-              work_queue_cv_.wait(lock);
-            }
-            else
-            {
-              // Get next work to do
-              auto next_to_run = work_queue_.pop();
-
-              // Unlock queue lock
-              lock.unlock();
-
-              // Do the work
-              next_to_run();
-
-              // Lock queue lock
-              lock.lock();
-            }
-          }
-        },
-        std::forward<WorkGroupArgTs>(work_group_args)...}
-  {}
-
-  /**
-   * @brief Initializes workers
-   *
-   * @param work_group_args...  arguments, other than work loop callback, used to setup work group, i.e.
-   * <code>WorkGroupT{loop_fn, work_group_args...}</code>
-   */
-  template <typename... WorkGroupArgTs>
-  explicit pool_base(WorkGroupArgTs&&... work_group_args) : pool_base{WorkControlT{}, std::forward<WorkGroupArgTs>(work_group_args)...} {}
-
-  /**
-   * @brief Enqueues new work
-   */
-  template <typename WorkT> void emplace(WorkT&& work)
-  {
-    // Adds work under lock
-    {
-      std::lock_guard lock{work_queue_mutex_};
-      work_queue_.enqueue(std::forward<WorkT>(work));
-    }
-    // Signal that work is available
-    work_queue_cv_.notify_one();
-  }
-
-  ~pool_base()
-  {
-    // Stop work loop under look
-    {
-      std::lock_guard lock{work_queue_mutex_};
-      worker_control_.stop();
-    }
-    // Unblock any active waits
-    work_queue_cv_.notify_all();
-  }
-
-private:
-  /// Protects concurrent access of work_queue_cv_
-  std::mutex work_queue_mutex_;
-
-  /// Condition variable to signal new work
-  std::condition_variable work_queue_cv_;
-
-  /// Constrains work queue behavior
-  WorkControlT worker_control_;
-
-  /// Queue of jobs to run
-  WorkQueueT work_queue_;
-
-  /// Workers which run jobs
-  WorkGroupT workers_;
-};
 
 /**
  * @brief Default work pool execution options
@@ -265,7 +31,7 @@ private:
 /**
  * @brief Default work pool execution options
  */
-struct work_control_finish_all
+struct work_control_strict
 {
 public:
   template<typename WorkQueueT>
@@ -278,17 +44,43 @@ private:
 /**
  * @brief A single-threaded work
  */
-using worker = pool_base<work_group<1>, work_queue_lifo_default<>, work_control_default>;
+using worker = pool_base<work_group_static<1>, work_queue_lifo<>, work_control_default>;
 
 /**
- * @brief A multi-threaded worker; thread count decided at runtime
+ * @copydoc worker
+ * @note always finishes all work
  */
-using pool = pool_base<work_group<0>, work_queue_lifo_default<>, work_control_default>;
+using worker_strict = pool_base<work_group_static<1>, work_queue_lifo<>, work_control_strict>;
 
 /**
  * @brief A multi-threaded worker; thread count decided at compile-time
  */
 template <std::size_t N>
-using static_pool = pool_base<work_group<N>, work_queue_lifo_default<>, work_control_default>;
+using static_pool = pool_base<work_group_static<N>, work_queue_lifo<>, work_control_default>;
+
+/**
+ * @copydoc static_pool
+ * @note always finishes all work
+ */
+template <std::size_t N>
+using static_pool_strict = pool_base<work_group_static<N>, work_queue_lifo<>, work_control_strict>;
+
+/**
+ * @brief A multi-threaded worker; thread count decided at runtime
+ */
+using pool = pool_base<work_group_dynamic, work_queue_lifo<>, work_control_default>;
+
+/**
+ * @copydoc pool
+ * @note always finishes all work
+ */
+using pool_strict = pool_base<work_group_dynamic, work_queue_lifo<>, work_control_strict>;
+
+#ifdef PARACHUTE_COMPILED
+extern template class pool_base<work_group_static<1>, work_queue_lifo<>, work_control_default>;
+extern template class pool_base<work_group_static<1>, work_queue_lifo<>, work_control_strict>;
+extern template class pool_base<work_group_dynamic, work_queue_lifo<>, work_control_default>;
+extern template class pool_base<work_group_dynamic, work_queue_lifo<>, work_control_strict>;
+#endif  // PARACHUTE_COMPILED
 
 }  // namespace para

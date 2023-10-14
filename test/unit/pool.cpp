@@ -25,7 +25,7 @@ template <typename T> class WorkerPoolTestSuite : public ::testing::Test
 public:
 };
 
-using WorkerPoolTestSuiteTypes = ::testing::Types<worker, static_pool<4>, pool>;
+using WorkerPoolTestSuiteTypes = ::testing::Types<worker, worker_strict, static_pool<4>, static_pool_strict<4>, pool, pool_strict>;
 
 TYPED_TEST_SUITE(WorkerPoolTestSuite, WorkerPoolTestSuiteTypes);
 
