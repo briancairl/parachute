@@ -1,0 +1,4 @@
+Name: ${PROJECT_NAME}
+Description: C++17 customizable thread pool implementation
+Version: ${PROJECT_VERSION}
+Cflags: -I${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_INCLUDEDIR}
