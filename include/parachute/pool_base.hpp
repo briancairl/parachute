@@ -8,6 +8,7 @@
 // C++ Standard Library
 #include <condition_variable>
 #include <mutex>
+#include <thread>
 #include <utility>
 
 namespace para
