@@ -95,6 +95,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Represents a future value to be computed, generally in an asynchronous manner.  <a href="classpara_1_1non__blocking__future.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpara_1_1non__blocking__future__error.html">non_blocking_future_error</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Exception type thrown with <code><a class="el" href="classpara_1_1non__blocking__future.html" title="Represents a future value to be computed, generally in an asynchronous manner.">non_blocking_future</a></code> and <code><a class="el" href="classpara_1_1non__blocking__promise.html" title="Represents the state of an eventual value, shared between execution contexts.">non_blocking_promise</a></code>  <a href="structpara_1_1non__blocking__future__error.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structpara_1_1non__blocking__promise_3_01void_01_4.html">non_blocking_promise&lt; void &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -151,6 +152,7 @@ Enumerations</h2></td></tr>
 <tr class="memitem:af7d3e951acd82278aaef571a988b3fbb"><td class="memItemLeft" align="right" valign="top">enum class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacepara.html#af7d3e951acd82278aaef571a988b3fbb">non_blocking_future_errc</a> { <a class="el" href="namespacepara.html#af7d3e951acd82278aaef571a988b3fbbac537dcef56fd6ff75592c0220fd3dae1">no_state</a>
 , <a class="el" href="namespacepara.html#af7d3e951acd82278aaef571a988b3fbba9327d6f7b9aca59b62b436696fd17a00">promise_already_satisfied</a>
  }</td></tr>
+<tr class="memdesc:af7d3e951acd82278aaef571a988b3fbb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error codes used when throwing <code>non_blocking_future_error</code>  <a href="namespacepara.html#af7d3e951acd82278aaef571a988b3fbb">More...</a><br /></td></tr>
 <tr class="separator:af7d3e951acd82278aaef571a988b3fbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -288,9 +290,13 @@ template&lt;std::size_t N&gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Error codes used when throwing <code><a class="el" href="structpara_1_1non__blocking__future__error.html" title="Exception type thrown with non_blocking_future and non_blocking_promise">non_blocking_future_error</a></code> </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af7d3e951acd82278aaef571a988b3fbbac537dcef56fd6ff75592c0220fd3dae1"></a>no_state&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af7d3e951acd82278aaef571a988b3fbba9327d6f7b9aca59b62b436696fd17a00"></a>promise_already_satisfied&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af7d3e951acd82278aaef571a988b3fbbac537dcef56fd6ff75592c0220fd3dae1"></a>no_state&#160;</td><td class="fielddoc"><p>state was already retrieved from future; or future already retrieved from promise </p>
+</td></tr>
+<tr><td class="fieldname"><a id="af7d3e951acd82278aaef571a988b3fbba9327d6f7b9aca59b62b436696fd17a00"></a>promise_already_satisfied&#160;</td><td class="fielddoc"><p>value already set to promise </p>
+</td></tr>
 </table>
 
 </div>

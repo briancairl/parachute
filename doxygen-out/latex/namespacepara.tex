@@ -19,7 +19,7 @@ class \mbox{\hyperlink{classpara_1_1non__blocking__promise}{non\+\_\+blocking\+\
 class \mbox{\hyperlink{classpara_1_1non__blocking__future}{non\+\_\+blocking\+\_\+future}}
 \begin{DoxyCompactList}\small\item\em Represents a future value to be computed, generally in an asynchronous manner. \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structpara_1_1non__blocking__future__error}{non\+\_\+blocking\+\_\+future\+\_\+error}}
-\item 
+\begin{DoxyCompactList}\small\item\em Exception type thrown with {\ttfamily \mbox{\hyperlink{classpara_1_1non__blocking__future}{non\+\_\+blocking\+\_\+future}}} and {\ttfamily \mbox{\hyperlink{classpara_1_1non__blocking__promise}{non\+\_\+blocking\+\_\+promise}}} \end{DoxyCompactList}\item 
 struct \mbox{\hyperlink{structpara_1_1non__blocking__promise_3_01void_01_4}{non\+\_\+blocking\+\_\+promise$<$ void $>$}}
 \item 
 struct \mbox{\hyperlink{structpara_1_1work__control__default}{work\+\_\+control\+\_\+default}}
@@ -59,7 +59,7 @@ using \mbox{\hyperlink{namespacepara_a9c588e5b8acad09f96380b8f5aae3aff}{pool\+\_
 enum class \mbox{\hyperlink{namespacepara_af7d3e951acd82278aaef571a988b3fbb}{non\+\_\+blocking\+\_\+future\+\_\+errc}} \{ \mbox{\hyperlink{namespacepara_af7d3e951acd82278aaef571a988b3fbbac537dcef56fd6ff75592c0220fd3dae1}{no\+\_\+state}}
 , \mbox{\hyperlink{namespacepara_af7d3e951acd82278aaef571a988b3fbba9327d6f7b9aca59b62b436696fd17a00}{promise\+\_\+already\+\_\+satisfied}}
  \}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Error codes used when throwing {\ttfamily non\+\_\+blocking\+\_\+future\+\_\+error} \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
@@ -150,13 +150,17 @@ always finishes all work
 \doxysubsubsection{\texorpdfstring{non\_blocking\_future\_errc}{non\_blocking\_future\_errc}}
 {\footnotesize\ttfamily enum \mbox{\hyperlink{namespacepara_af7d3e951acd82278aaef571a988b3fbb}{para\+::non\+\_\+blocking\+\_\+future\+\_\+errc}}\hspace{0.3cm}{\ttfamily [strong]}}
 
+
+
+Error codes used when throwing {\ttfamily \mbox{\hyperlink{structpara_1_1non__blocking__future__error}{non\+\_\+blocking\+\_\+future\+\_\+error}}} 
+
 \begin{DoxyEnumFields}{Enumerator}
 \raisebox{\heightof{T}}[0pt][0pt]{\index{no\_state@{no\_state}!para@{para}}\index{para@{para}!no\_state@{no\_state}}}\mbox{\Hypertarget{namespacepara_af7d3e951acd82278aaef571a988b3fbbac537dcef56fd6ff75592c0220fd3dae1}\label{namespacepara_af7d3e951acd82278aaef571a988b3fbbac537dcef56fd6ff75592c0220fd3dae1}} 
-no\+\_\+state&\\
+no\+\_\+state&state was already retrieved from future; or future already retrieved from promise \\
 \hline
 
 \raisebox{\heightof{T}}[0pt][0pt]{\index{promise\_already\_satisfied@{promise\_already\_satisfied}!para@{para}}\index{para@{para}!promise\_already\_satisfied@{promise\_already\_satisfied}}}\mbox{\Hypertarget{namespacepara_af7d3e951acd82278aaef571a988b3fbba9327d6f7b9aca59b62b436696fd17a00}\label{namespacepara_af7d3e951acd82278aaef571a988b3fbba9327d6f7b9aca59b62b436696fd17a00}} 
-promise\+\_\+already\+\_\+satisfied&\\
+promise\+\_\+already\+\_\+satisfied&value already set to promise \\
 \hline
 
 \end{DoxyEnumFields}
