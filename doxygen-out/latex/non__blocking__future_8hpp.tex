@@ -1,0 +1,44 @@
+\hypertarget{non__blocking__future_8hpp}{}\doxysection{include/parachute/non\+\_\+blocking\+\_\+future.hpp File Reference}
+\label{non__blocking__future_8hpp}\index{include/parachute/non\_blocking\_future.hpp@{include/parachute/non\_blocking\_future.hpp}}
+{\ttfamily \#include $<$atomic$>$}\newline
+{\ttfamily \#include $<$cstddef$>$}\newline
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpara_1_1non__blocking__future__error}{para\+::non\+\_\+blocking\+\_\+future\+\_\+error}}
+\item 
+class \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4}{para\+::detail\+::non\+\_\+blocking\+\_\+shared\+\_\+state$<$ void $>$}}
+\begin{DoxyCompactList}\small\item\em Holds result state shared between threads. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__shared__state}{para\+::detail\+::non\+\_\+blocking\+\_\+shared\+\_\+state$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Holds result state shared between threads. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{para\+::detail\+::non\+\_\+blocking\+\_\+promise\+\_\+common$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Common base of \mbox{\hyperlink{classpara_1_1non__blocking__promise}{non\+\_\+blocking\+\_\+promise}} types. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpara_1_1non__blocking__future}{para\+::non\+\_\+blocking\+\_\+future$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Represents a future value to be computed, generally in an asynchronous manner. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpara_1_1non__blocking__promise}{para\+::non\+\_\+blocking\+\_\+promise$<$ T $>$}}
+\begin{DoxyCompactList}\small\item\em Represents the state of an eventual value, shared between execution contexts. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structpara_1_1non__blocking__promise_3_01void_01_4}{para\+::non\+\_\+blocking\+\_\+promise$<$ void $>$}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacepara}{para}}
+\item 
+ \mbox{\hyperlink{namespacepara_1_1detail}{para\+::detail}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacepara_af7d3e951acd82278aaef571a988b3fbb}{para\+::non\+\_\+blocking\+\_\+future\+\_\+errc}} \{ \mbox{\hyperlink{namespacepara_af7d3e951acd82278aaef571a988b3fbbac537dcef56fd6ff75592c0220fd3dae1}{para\+::no\+\_\+state}}
+, \mbox{\hyperlink{namespacepara_af7d3e951acd82278aaef571a988b3fbba9327d6f7b9aca59b62b436696fd17a00}{para\+::promise\+\_\+already\+\_\+satisfied}}
+ \}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyCopyright}{Copyright}
+2023-\/present Brian Cairl 
+\end{DoxyCopyright}

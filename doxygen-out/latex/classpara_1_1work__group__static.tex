@@ -1,0 +1,64 @@
+\hypertarget{classpara_1_1work__group__static}{}\doxysection{para\+::work\+\_\+group\+\_\+static$<$ N $>$ Class Template Reference}
+\label{classpara_1_1work__group__static}\index{para::work\_group\_static$<$ N $>$@{para::work\_group\_static$<$ N $>$}}
+
+
+Managers N threads of execution, decided at compile-\/time, each of which run an identical work-\/loop.  
+
+
+
+
+{\ttfamily \#include $<$static.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Work\+Loop\+FnT $>$ }\\\mbox{\hyperlink{classpara_1_1work__group__static_a645617fa1ecd0d6ea613a38da09b9eba}{work\+\_\+group\+\_\+static}} (Work\+Loop\+FnT f)
+\begin{DoxyCompactList}\small\item\em Starts all workers running work callback {\ttfamily f}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpara_1_1work__group__static_a178547c7ab7089b2e28e3cb5ff064e49}{$\sim$work\+\_\+group\+\_\+static}} ()
+\begin{DoxyCompactList}\small\item\em Waits for all work threads to join. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$std\+::size\+\_\+t N$>$\newline
+class para\+::work\+\_\+group\+\_\+static$<$ N $>$}
+
+Managers N threads of execution, decided at compile-\/time, each of which run an identical work-\/loop. 
+
+Joins threads on destruction
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em N} & thread count \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpara_1_1work__group__static_a645617fa1ecd0d6ea613a38da09b9eba}\label{classpara_1_1work__group__static_a645617fa1ecd0d6ea613a38da09b9eba}} 
+\index{para::work\_group\_static$<$ N $>$@{para::work\_group\_static$<$ N $>$}!work\_group\_static@{work\_group\_static}}
+\index{work\_group\_static@{work\_group\_static}!para::work\_group\_static$<$ N $>$@{para::work\_group\_static$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{work\_group\_static()}{work\_group\_static()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+template$<$typename Work\+Loop\+FnT $>$ \\
+\mbox{\hyperlink{classpara_1_1work__group__static}{para\+::work\+\_\+group\+\_\+static}}$<$ N $>$\+::\mbox{\hyperlink{classpara_1_1work__group__static}{work\+\_\+group\+\_\+static}} (\begin{DoxyParamCaption}\item[{Work\+Loop\+FnT}]{f }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Starts all workers running work callback {\ttfamily f}. 
+
+\mbox{\Hypertarget{classpara_1_1work__group__static_a178547c7ab7089b2e28e3cb5ff064e49}\label{classpara_1_1work__group__static_a178547c7ab7089b2e28e3cb5ff064e49}} 
+\index{para::work\_group\_static$<$ N $>$@{para::work\_group\_static$<$ N $>$}!````~work\_group\_static@{$\sim$work\_group\_static}}
+\index{````~work\_group\_static@{$\sim$work\_group\_static}!para::work\_group\_static$<$ N $>$@{para::work\_group\_static$<$ N $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$work\_group\_static()}{~work\_group\_static()}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+\mbox{\hyperlink{classpara_1_1work__group__static}{para\+::work\+\_\+group\+\_\+static}}$<$ N $>$\+::$\sim$\mbox{\hyperlink{classpara_1_1work__group__static}{work\+\_\+group\+\_\+static}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Waits for all work threads to join. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/parachute/work\+\_\+group/\mbox{\hyperlink{static_8hpp}{static.\+hpp}}\end{DoxyCompactItemize}

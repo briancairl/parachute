@@ -1,0 +1,52 @@
+\hypertarget{classpara_1_1work__group__dynamic}{}\doxysection{para\+::work\+\_\+group\+\_\+dynamic Class Reference}
+\label{classpara_1_1work__group__dynamic}\index{para::work\_group\_dynamic@{para::work\_group\_dynamic}}
+
+
+Managers N threads of execution, decided at runtime, each of which run an identical work-\/loop.  
+
+
+
+
+{\ttfamily \#include $<$dynamic.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Work\+Loop\+FnT $>$ }\\\mbox{\hyperlink{classpara_1_1work__group__dynamic_a7fb0849c5f3a1eb4ecc8c849fb984a75}{work\+\_\+group\+\_\+dynamic}} (Work\+Loop\+FnT f, const std\+::size\+\_\+t n\+\_\+workers=std\+::thread\+::hardware\+\_\+concurrency())
+\begin{DoxyCompactList}\small\item\em Starts all workers running work callback {\ttfamily f}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpara_1_1work__group__dynamic_a3fbefd29932e5d7cd22b73e857b26661}{$\sim$work\+\_\+group\+\_\+dynamic}} ()
+\begin{DoxyCompactList}\small\item\em Waits for all work threads to join. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Managers N threads of execution, decided at runtime, each of which run an identical work-\/loop. 
+
+Joins threads on destruction 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpara_1_1work__group__dynamic_a7fb0849c5f3a1eb4ecc8c849fb984a75}\label{classpara_1_1work__group__dynamic_a7fb0849c5f3a1eb4ecc8c849fb984a75}} 
+\index{para::work\_group\_dynamic@{para::work\_group\_dynamic}!work\_group\_dynamic@{work\_group\_dynamic}}
+\index{work\_group\_dynamic@{work\_group\_dynamic}!para::work\_group\_dynamic@{para::work\_group\_dynamic}}
+\doxysubsubsection{\texorpdfstring{work\_group\_dynamic()}{work\_group\_dynamic()}}
+{\footnotesize\ttfamily template$<$typename Work\+Loop\+FnT $>$ \\
+para\+::work\+\_\+group\+\_\+dynamic\+::work\+\_\+group\+\_\+dynamic (\begin{DoxyParamCaption}\item[{Work\+Loop\+FnT}]{f,  }\item[{const std\+::size\+\_\+t}]{n\+\_\+workers = {\ttfamily std\+:\+:thread\+:\+:hardware\+\_\+concurrency()} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Starts all workers running work callback {\ttfamily f}. 
+
+\mbox{\Hypertarget{classpara_1_1work__group__dynamic_a3fbefd29932e5d7cd22b73e857b26661}\label{classpara_1_1work__group__dynamic_a3fbefd29932e5d7cd22b73e857b26661}} 
+\index{para::work\_group\_dynamic@{para::work\_group\_dynamic}!````~work\_group\_dynamic@{$\sim$work\_group\_dynamic}}
+\index{````~work\_group\_dynamic@{$\sim$work\_group\_dynamic}!para::work\_group\_dynamic@{para::work\_group\_dynamic}}
+\doxysubsubsection{\texorpdfstring{$\sim$work\_group\_dynamic()}{~work\_group\_dynamic()}}
+{\footnotesize\ttfamily para\+::work\+\_\+group\+\_\+dynamic\+::$\sim$work\+\_\+group\+\_\+dynamic (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Waits for all work threads to join. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/parachute/work\+\_\+group/\mbox{\hyperlink{dynamic_8hpp}{dynamic.\+hpp}}\end{DoxyCompactItemize}

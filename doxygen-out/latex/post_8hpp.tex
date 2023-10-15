@@ -1,0 +1,33 @@
+\hypertarget{post_8hpp}{}\doxysection{include/parachute/post.hpp File Reference}
+\label{post_8hpp}\index{include/parachute/post.hpp@{include/parachute/post.hpp}}
+{\ttfamily \#include $<$exception$>$}\newline
+{\ttfamily \#include $<$type\+\_\+traits$>$}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacestd}{std}}
+\item 
+ \mbox{\hyperlink{namespacepara}{para}}
+\item 
+ \mbox{\hyperlink{namespacepara_1_1strategy}{para\+::strategy}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacepara_1_1strategy_ad2802898855e9a5f4e40dbbe01aa4943}{para\+::strategy\+::blocking}} = \+::\mbox{\hyperlink{classstd_1_1promise}{std\+::promise}}$<$ T $>$
+\item 
+{\footnotesize template$<$typename T $>$ }\\using \mbox{\hyperlink{namespacepara_1_1strategy_a7522a5fcc67c190f573c1f101e72e4a8}{para\+::strategy\+::non\+\_\+blocking}} = non\+\_\+blocking\+\_\+promise$<$ T $>$
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$template$<$ typename $>$ class Promise\+Tmpl, typename Work\+GroupT , typename Work\+QueueT , typename Work\+Pool\+OptionsT , typename WorkT , typename ResultT  = std\+::invoke\+\_\+result\+\_\+t$<$std\+::remove\+\_\+reference\+\_\+t$<$\+Work\+T$>$$>$$>$ }\\auto \mbox{\hyperlink{namespacepara_a49c22102804476b66b45599fcebbeea5}{para\+::post}} (pool\+\_\+base$<$ Work\+GroupT, Work\+QueueT, Work\+Pool\+OptionsT $>$ \&wp, WorkT \&\&work)
+\begin{DoxyCompactList}\small\item\em Enqueues work to a work pool and returns a tracker for that work. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename PoolT , typename WorkT $>$ }\\decltype(auto) \mbox{\hyperlink{namespacepara_a4eb408bb8fed82b0ebfbc021bcb1c2ac}{para\+::post}} (PoolT \&\&pool, WorkT \&\&work)
+\begin{DoxyCompactList}\small\item\em Enqueues work to a work pool and returns a tracker for that work. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyCopyright}{Copyright}
+2023-\/present Brian Cairl 
+\end{DoxyCopyright}

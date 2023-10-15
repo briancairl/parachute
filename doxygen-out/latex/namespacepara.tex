@@ -1,0 +1,187 @@
+\hypertarget{namespacepara}{}\doxysection{para Namespace Reference}
+\label{namespacepara}\index{para@{para}}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacepara_1_1algorithm}{algorithm}}
+\item 
+ \mbox{\hyperlink{namespacepara_1_1detail}{detail}}
+\item 
+ \mbox{\hyperlink{namespacepara_1_1internal}{internal}}
+\item 
+ \mbox{\hyperlink{namespacepara_1_1strategy}{strategy}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classpara_1_1non__blocking__promise}{non\+\_\+blocking\+\_\+promise}}
+\begin{DoxyCompactList}\small\item\em Represents the state of an eventual value, shared between execution contexts. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpara_1_1non__blocking__future}{non\+\_\+blocking\+\_\+future}}
+\begin{DoxyCompactList}\small\item\em Represents a future value to be computed, generally in an asynchronous manner. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structpara_1_1non__blocking__future__error}{non\+\_\+blocking\+\_\+future\+\_\+error}}
+\item 
+struct \mbox{\hyperlink{structpara_1_1non__blocking__promise_3_01void_01_4}{non\+\_\+blocking\+\_\+promise$<$ void $>$}}
+\item 
+struct \mbox{\hyperlink{structpara_1_1work__control__default}{work\+\_\+control\+\_\+default}}
+\begin{DoxyCompactList}\small\item\em Default work pool execution options. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structpara_1_1work__control__strict}{work\+\_\+control\+\_\+strict}}
+\begin{DoxyCompactList}\small\item\em Default work pool execution options. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}
+\begin{DoxyCompactList}\small\item\em Represents a pool of 1 of workers (typically threads) which participate in executing enqueued work. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpara_1_1work__group__dynamic}{work\+\_\+group\+\_\+dynamic}}
+\begin{DoxyCompactList}\small\item\em Managers N threads of execution, decided at runtime, each of which run an identical work-\/loop. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpara_1_1work__group__static}{work\+\_\+group\+\_\+static}}
+\begin{DoxyCompactList}\small\item\em Managers N threads of execution, decided at compile-\/time, each of which run an identical work-\/loop. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpara_1_1work__group__static_3_011_01_4}{work\+\_\+group\+\_\+static$<$ 1 $>$}}
+\begin{DoxyCompactList}\small\item\em Managers 1 thread of execution which runs a work-\/loop. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpara_1_1work__queue__fifo}{work\+\_\+queue\+\_\+fifo}}
+\begin{DoxyCompactList}\small\item\em Represents a default, first-\/in-\/first-\/out (FIFO) work queue. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classpara_1_1work__queue__lifo}{work\+\_\+queue\+\_\+lifo}}
+\begin{DoxyCompactList}\small\item\em Represents a default, last-\/in-\/first-\/out (LIFO) work queue. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacepara_af829fe17577ee31e80860671297e24b4}{worker}} = \mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ \mbox{\hyperlink{classpara_1_1work__group__static}{work\+\_\+group\+\_\+static}}$<$ 1 $>$, \mbox{\hyperlink{classpara_1_1work__queue__lifo}{work\+\_\+queue\+\_\+lifo}}$<$$>$, \mbox{\hyperlink{structpara_1_1work__control__default}{work\+\_\+control\+\_\+default}} $>$
+\begin{DoxyCompactList}\small\item\em A single-\/threaded work. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacepara_a191111fb971058da4dc225d474bb72b1}{worker\+\_\+strict}} = \mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ \mbox{\hyperlink{classpara_1_1work__group__static}{work\+\_\+group\+\_\+static}}$<$ 1 $>$, \mbox{\hyperlink{classpara_1_1work__queue__lifo}{work\+\_\+queue\+\_\+lifo}}$<$$>$, \mbox{\hyperlink{structpara_1_1work__control__strict}{work\+\_\+control\+\_\+strict}} $>$
+\begin{DoxyCompactList}\small\item\em A single-\/threaded work. \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::size\+\_\+t N$>$ }\\using \mbox{\hyperlink{namespacepara_aa2c1ed7d8e0067a3b74132d5cdbb43a4}{static\+\_\+pool}} = \mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ \mbox{\hyperlink{classpara_1_1work__group__static}{work\+\_\+group\+\_\+static}}$<$ N $>$, \mbox{\hyperlink{classpara_1_1work__queue__lifo}{work\+\_\+queue\+\_\+lifo}}$<$$>$, \mbox{\hyperlink{structpara_1_1work__control__default}{work\+\_\+control\+\_\+default}} $>$
+\begin{DoxyCompactList}\small\item\em A multi-\/threaded worker; thread count decided at compile-\/time. \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::size\+\_\+t N$>$ }\\using \mbox{\hyperlink{namespacepara_a491f5842c96915937e27a6e61af398e9}{static\+\_\+pool\+\_\+strict}} = \mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ \mbox{\hyperlink{classpara_1_1work__group__static}{work\+\_\+group\+\_\+static}}$<$ N $>$, \mbox{\hyperlink{classpara_1_1work__queue__lifo}{work\+\_\+queue\+\_\+lifo}}$<$$>$, \mbox{\hyperlink{structpara_1_1work__control__strict}{work\+\_\+control\+\_\+strict}} $>$
+\begin{DoxyCompactList}\small\item\em A multi-\/threaded worker; thread count decided at compile-\/time. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacepara_a669efd165efc7f7d52bf49339e46eaf9}{pool}} = \mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ \mbox{\hyperlink{classpara_1_1work__group__dynamic}{work\+\_\+group\+\_\+dynamic}}, \mbox{\hyperlink{classpara_1_1work__queue__lifo}{work\+\_\+queue\+\_\+lifo}}$<$$>$, \mbox{\hyperlink{structpara_1_1work__control__default}{work\+\_\+control\+\_\+default}} $>$
+\begin{DoxyCompactList}\small\item\em A multi-\/threaded worker; thread count decided at runtime. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacepara_a9c588e5b8acad09f96380b8f5aae3aff}{pool\+\_\+strict}} = \mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ \mbox{\hyperlink{classpara_1_1work__group__dynamic}{work\+\_\+group\+\_\+dynamic}}, \mbox{\hyperlink{classpara_1_1work__queue__lifo}{work\+\_\+queue\+\_\+lifo}}$<$$>$, \mbox{\hyperlink{structpara_1_1work__control__strict}{work\+\_\+control\+\_\+strict}} $>$
+\begin{DoxyCompactList}\small\item\em A multi-\/threaded worker; thread count decided at runtime. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum class \mbox{\hyperlink{namespacepara_af7d3e951acd82278aaef571a988b3fbb}{non\+\_\+blocking\+\_\+future\+\_\+errc}} \{ \mbox{\hyperlink{namespacepara_af7d3e951acd82278aaef571a988b3fbbac537dcef56fd6ff75592c0220fd3dae1}{no\+\_\+state}}
+, \mbox{\hyperlink{namespacepara_af7d3e951acd82278aaef571a988b3fbba9327d6f7b9aca59b62b436696fd17a00}{promise\+\_\+already\+\_\+satisfied}}
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$template$<$ typename $>$ class Promise\+Tmpl, typename Work\+GroupT , typename Work\+QueueT , typename Work\+Pool\+OptionsT , typename WorkT , typename ResultT  = std\+::invoke\+\_\+result\+\_\+t$<$std\+::remove\+\_\+reference\+\_\+t$<$\+Work\+T$>$$>$$>$ }\\auto \mbox{\hyperlink{namespacepara_a49c22102804476b66b45599fcebbeea5}{post}} (\mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ Work\+GroupT, Work\+QueueT, Work\+Pool\+OptionsT $>$ \&wp, WorkT \&\&work)
+\begin{DoxyCompactList}\small\item\em Enqueues work to a work pool and returns a tracker for that work. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename PoolT , typename WorkT $>$ }\\decltype(auto) \mbox{\hyperlink{namespacepara_a4eb408bb8fed82b0ebfbc021bcb1c2ac}{post}} (PoolT \&\&\mbox{\hyperlink{namespacepara_a669efd165efc7f7d52bf49339e46eaf9}{pool}}, WorkT \&\&work)
+\begin{DoxyCompactList}\small\item\em Enqueues work to a work pool and returns a tracker for that work. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{namespacepara_a669efd165efc7f7d52bf49339e46eaf9}\label{namespacepara_a669efd165efc7f7d52bf49339e46eaf9}} 
+\index{para@{para}!pool@{pool}}
+\index{pool@{pool}!para@{para}}
+\doxysubsubsection{\texorpdfstring{pool}{pool}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacepara_a669efd165efc7f7d52bf49339e46eaf9}{para\+::pool}} = typedef \mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$\mbox{\hyperlink{classpara_1_1work__group__dynamic}{work\+\_\+group\+\_\+dynamic}}, \mbox{\hyperlink{classpara_1_1work__queue__lifo}{work\+\_\+queue\+\_\+lifo}}$<$$>$, \mbox{\hyperlink{structpara_1_1work__control__default}{work\+\_\+control\+\_\+default}}$>$}
+
+
+
+A multi-\/threaded worker; thread count decided at runtime. 
+
+\mbox{\Hypertarget{namespacepara_a9c588e5b8acad09f96380b8f5aae3aff}\label{namespacepara_a9c588e5b8acad09f96380b8f5aae3aff}} 
+\index{para@{para}!pool\_strict@{pool\_strict}}
+\index{pool\_strict@{pool\_strict}!para@{para}}
+\doxysubsubsection{\texorpdfstring{pool\_strict}{pool\_strict}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacepara_a9c588e5b8acad09f96380b8f5aae3aff}{para\+::pool\+\_\+strict}} = typedef \mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$\mbox{\hyperlink{classpara_1_1work__group__dynamic}{work\+\_\+group\+\_\+dynamic}}, \mbox{\hyperlink{classpara_1_1work__queue__lifo}{work\+\_\+queue\+\_\+lifo}}$<$$>$, \mbox{\hyperlink{structpara_1_1work__control__strict}{work\+\_\+control\+\_\+strict}}$>$}
+
+
+
+A multi-\/threaded worker; thread count decided at runtime. 
+
+\begin{DoxyNote}{Note}
+always finishes all work 
+\end{DoxyNote}
+\mbox{\Hypertarget{namespacepara_aa2c1ed7d8e0067a3b74132d5cdbb43a4}\label{namespacepara_aa2c1ed7d8e0067a3b74132d5cdbb43a4}} 
+\index{para@{para}!static\_pool@{static\_pool}}
+\index{static\_pool@{static\_pool}!para@{para}}
+\doxysubsubsection{\texorpdfstring{static\_pool}{static\_pool}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+using \mbox{\hyperlink{namespacepara_aa2c1ed7d8e0067a3b74132d5cdbb43a4}{para\+::static\+\_\+pool}} = typedef \mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$\mbox{\hyperlink{classpara_1_1work__group__static}{work\+\_\+group\+\_\+static}}$<$N$>$, \mbox{\hyperlink{classpara_1_1work__queue__lifo}{work\+\_\+queue\+\_\+lifo}}$<$$>$, \mbox{\hyperlink{structpara_1_1work__control__default}{work\+\_\+control\+\_\+default}}$>$}
+
+
+
+A multi-\/threaded worker; thread count decided at compile-\/time. 
+
+\mbox{\Hypertarget{namespacepara_a491f5842c96915937e27a6e61af398e9}\label{namespacepara_a491f5842c96915937e27a6e61af398e9}} 
+\index{para@{para}!static\_pool\_strict@{static\_pool\_strict}}
+\index{static\_pool\_strict@{static\_pool\_strict}!para@{para}}
+\doxysubsubsection{\texorpdfstring{static\_pool\_strict}{static\_pool\_strict}}
+{\footnotesize\ttfamily template$<$std\+::size\+\_\+t N$>$ \\
+using \mbox{\hyperlink{namespacepara_a491f5842c96915937e27a6e61af398e9}{para\+::static\+\_\+pool\+\_\+strict}} = typedef \mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$\mbox{\hyperlink{classpara_1_1work__group__static}{work\+\_\+group\+\_\+static}}$<$N$>$, \mbox{\hyperlink{classpara_1_1work__queue__lifo}{work\+\_\+queue\+\_\+lifo}}$<$$>$, \mbox{\hyperlink{structpara_1_1work__control__strict}{work\+\_\+control\+\_\+strict}}$>$}
+
+
+
+A multi-\/threaded worker; thread count decided at compile-\/time. 
+
+\begin{DoxyNote}{Note}
+always finishes all work 
+\end{DoxyNote}
+\mbox{\Hypertarget{namespacepara_af829fe17577ee31e80860671297e24b4}\label{namespacepara_af829fe17577ee31e80860671297e24b4}} 
+\index{para@{para}!worker@{worker}}
+\index{worker@{worker}!para@{para}}
+\doxysubsubsection{\texorpdfstring{worker}{worker}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacepara_af829fe17577ee31e80860671297e24b4}{para\+::worker}} = typedef \mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$\mbox{\hyperlink{classpara_1_1work__group__static}{work\+\_\+group\+\_\+static}}$<$1$>$, \mbox{\hyperlink{classpara_1_1work__queue__lifo}{work\+\_\+queue\+\_\+lifo}}$<$$>$, \mbox{\hyperlink{structpara_1_1work__control__default}{work\+\_\+control\+\_\+default}}$>$}
+
+
+
+A single-\/threaded work. 
+
+\mbox{\Hypertarget{namespacepara_a191111fb971058da4dc225d474bb72b1}\label{namespacepara_a191111fb971058da4dc225d474bb72b1}} 
+\index{para@{para}!worker\_strict@{worker\_strict}}
+\index{worker\_strict@{worker\_strict}!para@{para}}
+\doxysubsubsection{\texorpdfstring{worker\_strict}{worker\_strict}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{namespacepara_a191111fb971058da4dc225d474bb72b1}{para\+::worker\+\_\+strict}} = typedef \mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$\mbox{\hyperlink{classpara_1_1work__group__static}{work\+\_\+group\+\_\+static}}$<$1$>$, \mbox{\hyperlink{classpara_1_1work__queue__lifo}{work\+\_\+queue\+\_\+lifo}}$<$$>$, \mbox{\hyperlink{structpara_1_1work__control__strict}{work\+\_\+control\+\_\+strict}}$>$}
+
+
+
+A single-\/threaded work. 
+
+\begin{DoxyNote}{Note}
+always finishes all work 
+\end{DoxyNote}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{namespacepara_af7d3e951acd82278aaef571a988b3fbb}\label{namespacepara_af7d3e951acd82278aaef571a988b3fbb}} 
+\index{para@{para}!non\_blocking\_future\_errc@{non\_blocking\_future\_errc}}
+\index{non\_blocking\_future\_errc@{non\_blocking\_future\_errc}!para@{para}}
+\doxysubsubsection{\texorpdfstring{non\_blocking\_future\_errc}{non\_blocking\_future\_errc}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{namespacepara_af7d3e951acd82278aaef571a988b3fbb}{para\+::non\+\_\+blocking\+\_\+future\+\_\+errc}}\hspace{0.3cm}{\ttfamily [strong]}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{no\_state@{no\_state}!para@{para}}\index{para@{para}!no\_state@{no\_state}}}\mbox{\Hypertarget{namespacepara_af7d3e951acd82278aaef571a988b3fbbac537dcef56fd6ff75592c0220fd3dae1}\label{namespacepara_af7d3e951acd82278aaef571a988b3fbbac537dcef56fd6ff75592c0220fd3dae1}} 
+no\+\_\+state&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{promise\_already\_satisfied@{promise\_already\_satisfied}!para@{para}}\index{para@{para}!promise\_already\_satisfied@{promise\_already\_satisfied}}}\mbox{\Hypertarget{namespacepara_af7d3e951acd82278aaef571a988b3fbba9327d6f7b9aca59b62b436696fd17a00}\label{namespacepara_af7d3e951acd82278aaef571a988b3fbba9327d6f7b9aca59b62b436696fd17a00}} 
+promise\+\_\+already\+\_\+satisfied&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{namespacepara_a49c22102804476b66b45599fcebbeea5}\label{namespacepara_a49c22102804476b66b45599fcebbeea5}} 
+\index{para@{para}!post@{post}}
+\index{post@{post}!para@{para}}
+\doxysubsubsection{\texorpdfstring{post()}{post()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$template$<$ typename $>$ class Promise\+Tmpl, typename Work\+GroupT , typename Work\+QueueT , typename Work\+Pool\+OptionsT , typename WorkT , typename ResultT  = std\+::invoke\+\_\+result\+\_\+t$<$std\+::remove\+\_\+reference\+\_\+t$<$\+Work\+T$>$$>$$>$ \\
+auto para\+::post (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ Work\+GroupT, Work\+QueueT, Work\+Pool\+OptionsT $>$ \&}]{wp,  }\item[{WorkT \&\&}]{work }\end{DoxyParamCaption})}
+
+
+
+Enqueues work to a work pool and returns a tracker for that work. 
+
+\mbox{\Hypertarget{namespacepara_a4eb408bb8fed82b0ebfbc021bcb1c2ac}\label{namespacepara_a4eb408bb8fed82b0ebfbc021bcb1c2ac}} 
+\index{para@{para}!post@{post}}
+\index{post@{post}!para@{para}}
+\doxysubsubsection{\texorpdfstring{post()}{post()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename PoolT , typename WorkT $>$ \\
+decltype(auto) para\+::post (\begin{DoxyParamCaption}\item[{PoolT \&\&}]{pool,  }\item[{WorkT \&\&}]{work }\end{DoxyParamCaption})}
+
+
+
+Enqueues work to a work pool and returns a tracker for that work. 
+

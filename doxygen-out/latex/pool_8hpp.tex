@@ -1,0 +1,40 @@
+\hypertarget{pool_8hpp}{}\doxysection{include/parachute/pool.hpp File Reference}
+\label{pool_8hpp}\index{include/parachute/pool.hpp@{include/parachute/pool.hpp}}
+{\ttfamily \#include $<$parachute/pool\+\_\+base.\+hpp$>$}\newline
+{\ttfamily \#include $<$parachute/work\+\_\+group/dynamic.\+hpp$>$}\newline
+{\ttfamily \#include $<$parachute/work\+\_\+group/static.\+hpp$>$}\newline
+{\ttfamily \#include $<$parachute/work\+\_\+queue/fifo.\+hpp$>$}\newline
+{\ttfamily \#include $<$parachute/work\+\_\+queue/lifo.\+hpp$>$}\newline
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structpara_1_1work__control__default}{para\+::work\+\_\+control\+\_\+default}}
+\begin{DoxyCompactList}\small\item\em Default work pool execution options. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structpara_1_1work__control__strict}{para\+::work\+\_\+control\+\_\+strict}}
+\begin{DoxyCompactList}\small\item\em Default work pool execution options. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacepara}{para}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{namespacepara_af829fe17577ee31e80860671297e24b4}{para\+::worker}} = pool\+\_\+base$<$ work\+\_\+group\+\_\+static$<$ 1 $>$, work\+\_\+queue\+\_\+lifo$<$$>$, work\+\_\+control\+\_\+default $>$
+\begin{DoxyCompactList}\small\item\em A single-\/threaded work. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacepara_a191111fb971058da4dc225d474bb72b1}{para\+::worker\+\_\+strict}} = pool\+\_\+base$<$ work\+\_\+group\+\_\+static$<$ 1 $>$, work\+\_\+queue\+\_\+lifo$<$$>$, work\+\_\+control\+\_\+strict $>$
+\begin{DoxyCompactList}\small\item\em A single-\/threaded work. \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::size\+\_\+t N$>$ }\\using \mbox{\hyperlink{namespacepara_aa2c1ed7d8e0067a3b74132d5cdbb43a4}{para\+::static\+\_\+pool}} = pool\+\_\+base$<$ work\+\_\+group\+\_\+static$<$ N $>$, work\+\_\+queue\+\_\+lifo$<$$>$, work\+\_\+control\+\_\+default $>$
+\begin{DoxyCompactList}\small\item\em A multi-\/threaded worker; thread count decided at compile-\/time. \end{DoxyCompactList}\item 
+{\footnotesize template$<$std\+::size\+\_\+t N$>$ }\\using \mbox{\hyperlink{namespacepara_a491f5842c96915937e27a6e61af398e9}{para\+::static\+\_\+pool\+\_\+strict}} = pool\+\_\+base$<$ work\+\_\+group\+\_\+static$<$ N $>$, work\+\_\+queue\+\_\+lifo$<$$>$, work\+\_\+control\+\_\+strict $>$
+\begin{DoxyCompactList}\small\item\em A multi-\/threaded worker; thread count decided at compile-\/time. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacepara_a669efd165efc7f7d52bf49339e46eaf9}{para\+::pool}} = pool\+\_\+base$<$ work\+\_\+group\+\_\+dynamic, work\+\_\+queue\+\_\+lifo$<$$>$, work\+\_\+control\+\_\+default $>$
+\begin{DoxyCompactList}\small\item\em A multi-\/threaded worker; thread count decided at runtime. \end{DoxyCompactList}\item 
+using \mbox{\hyperlink{namespacepara_a9c588e5b8acad09f96380b8f5aae3aff}{para\+::pool\+\_\+strict}} = pool\+\_\+base$<$ work\+\_\+group\+\_\+dynamic, work\+\_\+queue\+\_\+lifo$<$$>$, work\+\_\+control\+\_\+strict $>$
+\begin{DoxyCompactList}\small\item\em A multi-\/threaded worker; thread count decided at runtime. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyCopyright}{Copyright}
+2023-\/present Brian Cairl 
+\end{DoxyCopyright}

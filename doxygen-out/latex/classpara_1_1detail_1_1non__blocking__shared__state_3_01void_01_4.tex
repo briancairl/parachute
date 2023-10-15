@@ -1,0 +1,88 @@
+\hypertarget{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4}{}\doxysection{para\+::detail\+::non\+\_\+blocking\+\_\+shared\+\_\+state$<$ void $>$ Class Reference}
+\label{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4}\index{para::detail::non\_blocking\_shared\_state$<$ void $>$@{para::detail::non\_blocking\_shared\_state$<$ void $>$}}
+
+
+Holds result state shared between threads.  
+
+
+
+
+{\ttfamily \#include $<$non\+\_\+blocking\+\_\+future.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4_ae3dcbc7bd8625f736c464c376afe185a}{valid}} () const
+\begin{DoxyCompactList}\small\item\em Returns true if result is ready such that {\ttfamily non\+\_\+blocking\+\_\+promise\+::get()} is valid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4_a75c3713a19a456045fe132719973c568}{set}} (std\+::exception\+\_\+ptr \&\&ex)
+\begin{DoxyCompactList}\small\item\em Sets current exception. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4_a48c567ff8fdaee0be5433725e0608a62}{set}} ()
+\begin{DoxyCompactList}\small\item\em Sets ready state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4_a985fb9fa86ec48930aa71e1c65307285}{get}} ()
+\begin{DoxyCompactList}\small\item\em Clears ready state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Holds result state shared between threads. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & held value type\\
+\hline
+\end{DoxyTemplParams}
+\begin{DoxyNote}{Note}
+void specialization; meant for flagging only 
+\end{DoxyNote}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4_a985fb9fa86ec48930aa71e1c65307285}\label{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4_a985fb9fa86ec48930aa71e1c65307285}} 
+\index{para::detail::non\_blocking\_shared\_state$<$ void $>$@{para::detail::non\_blocking\_shared\_state$<$ void $>$}!get@{get}}
+\index{get@{get}!para::detail::non\_blocking\_shared\_state$<$ void $>$@{para::detail::non\_blocking\_shared\_state$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__shared__state}{para\+::detail\+::non\+\_\+blocking\+\_\+shared\+\_\+state}}$<$ void $>$\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Clears ready state. 
+
+
+\begin{DoxyExceptions}{Exceptions}
+{\em if} & there is an active exception \\
+\hline
+\end{DoxyExceptions}
+\mbox{\Hypertarget{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4_a48c567ff8fdaee0be5433725e0608a62}\label{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4_a48c567ff8fdaee0be5433725e0608a62}} 
+\index{para::detail::non\_blocking\_shared\_state$<$ void $>$@{para::detail::non\_blocking\_shared\_state$<$ void $>$}!set@{set}}
+\index{set@{set}!para::detail::non\_blocking\_shared\_state$<$ void $>$@{para::detail::non\_blocking\_shared\_state$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__shared__state}{para\+::detail\+::non\+\_\+blocking\+\_\+shared\+\_\+state}}$<$ void $>$\+::set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets ready state. 
+
+\mbox{\Hypertarget{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4_a75c3713a19a456045fe132719973c568}\label{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4_a75c3713a19a456045fe132719973c568}} 
+\index{para::detail::non\_blocking\_shared\_state$<$ void $>$@{para::detail::non\_blocking\_shared\_state$<$ void $>$}!set@{set}}
+\index{set@{set}!para::detail::non\_blocking\_shared\_state$<$ void $>$@{para::detail::non\_blocking\_shared\_state$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{set()}{set()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__shared__state}{para\+::detail\+::non\+\_\+blocking\+\_\+shared\+\_\+state}}$<$ void $>$\+::set (\begin{DoxyParamCaption}\item[{std\+::exception\+\_\+ptr \&\&}]{ex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets current exception. 
+
+\mbox{\Hypertarget{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4_ae3dcbc7bd8625f736c464c376afe185a}\label{classpara_1_1detail_1_1non__blocking__shared__state_3_01void_01_4_ae3dcbc7bd8625f736c464c376afe185a}} 
+\index{para::detail::non\_blocking\_shared\_state$<$ void $>$@{para::detail::non\_blocking\_shared\_state$<$ void $>$}!valid@{valid}}
+\index{valid@{valid}!para::detail::non\_blocking\_shared\_state$<$ void $>$@{para::detail::non\_blocking\_shared\_state$<$ void $>$}}
+\doxysubsubsection{\texorpdfstring{valid()}{valid()}}
+{\footnotesize\ttfamily bool \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__shared__state}{para\+::detail\+::non\+\_\+blocking\+\_\+shared\+\_\+state}}$<$ void $>$\+::valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns true if result is ready such that {\ttfamily non\+\_\+blocking\+\_\+promise\+::get()} is valid. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/parachute/\mbox{\hyperlink{non__blocking__future_8hpp}{non\+\_\+blocking\+\_\+future.\+hpp}}\end{DoxyCompactItemize}

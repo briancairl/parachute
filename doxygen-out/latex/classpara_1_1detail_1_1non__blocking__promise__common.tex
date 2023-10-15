@@ -1,0 +1,142 @@
+\hypertarget{classpara_1_1detail_1_1non__blocking__promise__common}{}\doxysection{para\+::detail\+::non\+\_\+blocking\+\_\+promise\+\_\+common$<$ T $>$ Class Template Reference}
+\label{classpara_1_1detail_1_1non__blocking__promise__common}\index{para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}}
+
+
+Common base of \mbox{\hyperlink{classpara_1_1non__blocking__promise}{non\+\_\+blocking\+\_\+promise}} types.  
+
+
+
+
+{\ttfamily \#include $<$non\+\_\+blocking\+\_\+future.\+hpp$>$}
+
+Inheritance diagram for para\+::detail\+::non\+\_\+blocking\+\_\+promise\+\_\+common$<$ T $>$\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classpara_1_1detail_1_1non__blocking__promise__common}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common_ae3cdadf5c2da6e768eb4c085546513cf}{non\+\_\+blocking\+\_\+promise\+\_\+common}} ()
+\begin{DoxyCompactList}\small\item\em Creates a \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{non\+\_\+blocking\+\_\+promise\+\_\+common}} with unfulfilled result value. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpara_1_1non__blocking__future}{non\+\_\+blocking\+\_\+future}}$<$ T $>$ \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common_ac17cacc42bf03005766e5f4e61c232c5}{get\+\_\+future}} () noexcept(false)
+\begin{DoxyCompactList}\small\item\em Returns handle to shared work state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common_aa1180708ace276fcbf0a1dcbf0b4c5fe}{set\+\_\+exception}} (std\+::exception\+\_\+ptr ex)
+\begin{DoxyCompactList}\small\item\em Sets active exception. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common_acce1be00120fe83b036a309dfbce9868}{non\+\_\+blocking\+\_\+promise\+\_\+common}} (const \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{non\+\_\+blocking\+\_\+promise\+\_\+common}} \&)=delete
+\item 
+\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common_a3bbe314996e01f8c815141875dc1d3e1}{non\+\_\+blocking\+\_\+promise\+\_\+common}} (\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{non\+\_\+blocking\+\_\+promise\+\_\+common}} \&\&other)
+\item 
+\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common_adb9ef724eb0c84dc0da953aee02446ae}{$\sim$non\+\_\+blocking\+\_\+promise\+\_\+common}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__shared__state}{detail\+::non\+\_\+blocking\+\_\+shared\+\_\+state}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common_aa36670a3781f045024669d3d657c8c3b}{state\+\_\+}} = nullptr
+\begin{DoxyCompactList}\small\item\em Shared result state. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common_a7c65e89809af299dd8f9283d898eb50a}{owning\+\_\+}} = false
+\begin{DoxyCompactList}\small\item\em Shared state is owned by promise. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class para\+::detail\+::non\+\_\+blocking\+\_\+promise\+\_\+common$<$ T $>$}
+
+Common base of \mbox{\hyperlink{classpara_1_1non__blocking__promise}{non\+\_\+blocking\+\_\+promise}} types. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & held value type \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpara_1_1detail_1_1non__blocking__promise__common_ae3cdadf5c2da6e768eb4c085546513cf}\label{classpara_1_1detail_1_1non__blocking__promise__common_ae3cdadf5c2da6e768eb4c085546513cf}} 
+\index{para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}!non\_blocking\_promise\_common@{non\_blocking\_promise\_common}}
+\index{non\_blocking\_promise\_common@{non\_blocking\_promise\_common}!para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{non\_blocking\_promise\_common()}{non\_blocking\_promise\_common()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{para\+::detail\+::non\+\_\+blocking\+\_\+promise\+\_\+common}}$<$ T $>$\+::\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{non\+\_\+blocking\+\_\+promise\+\_\+common}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Creates a \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{non\+\_\+blocking\+\_\+promise\+\_\+common}} with unfulfilled result value. 
+
+\mbox{\Hypertarget{classpara_1_1detail_1_1non__blocking__promise__common_acce1be00120fe83b036a309dfbce9868}\label{classpara_1_1detail_1_1non__blocking__promise__common_acce1be00120fe83b036a309dfbce9868}} 
+\index{para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}!non\_blocking\_promise\_common@{non\_blocking\_promise\_common}}
+\index{non\_blocking\_promise\_common@{non\_blocking\_promise\_common}!para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{non\_blocking\_promise\_common()}{non\_blocking\_promise\_common()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{para\+::detail\+::non\+\_\+blocking\+\_\+promise\+\_\+common}}$<$ T $>$\+::\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{non\+\_\+blocking\+\_\+promise\+\_\+common}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{non\+\_\+blocking\+\_\+promise\+\_\+common}}$<$ T $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{classpara_1_1detail_1_1non__blocking__promise__common_a3bbe314996e01f8c815141875dc1d3e1}\label{classpara_1_1detail_1_1non__blocking__promise__common_a3bbe314996e01f8c815141875dc1d3e1}} 
+\index{para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}!non\_blocking\_promise\_common@{non\_blocking\_promise\_common}}
+\index{non\_blocking\_promise\_common@{non\_blocking\_promise\_common}!para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{non\_blocking\_promise\_common()}{non\_blocking\_promise\_common()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{para\+::detail\+::non\+\_\+blocking\+\_\+promise\+\_\+common}}$<$ T $>$\+::\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{non\+\_\+blocking\+\_\+promise\+\_\+common}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{non\+\_\+blocking\+\_\+promise\+\_\+common}}$<$ T $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classpara_1_1detail_1_1non__blocking__promise__common_adb9ef724eb0c84dc0da953aee02446ae}\label{classpara_1_1detail_1_1non__blocking__promise__common_adb9ef724eb0c84dc0da953aee02446ae}} 
+\index{para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}!````~non\_blocking\_promise\_common@{$\sim$non\_blocking\_promise\_common}}
+\index{````~non\_blocking\_promise\_common@{$\sim$non\_blocking\_promise\_common}!para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$non\_blocking\_promise\_common()}{~non\_blocking\_promise\_common()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{para\+::detail\+::non\+\_\+blocking\+\_\+promise\+\_\+common}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{non\+\_\+blocking\+\_\+promise\+\_\+common}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classpara_1_1detail_1_1non__blocking__promise__common_ac17cacc42bf03005766e5f4e61c232c5}\label{classpara_1_1detail_1_1non__blocking__promise__common_ac17cacc42bf03005766e5f4e61c232c5}} 
+\index{para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}!get\_future@{get\_future}}
+\index{get\_future@{get\_future}!para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_future()}{get\_future()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classpara_1_1non__blocking__future}{non\+\_\+blocking\+\_\+future}}$<$ T $>$ \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{para\+::detail\+::non\+\_\+blocking\+\_\+promise\+\_\+common}}$<$ T $>$\+::get\+\_\+future\hspace{0.3cm}{\ttfamily [noexcept]}}
+
+
+
+Returns handle to shared work state. 
+
+\mbox{\Hypertarget{classpara_1_1detail_1_1non__blocking__promise__common_aa1180708ace276fcbf0a1dcbf0b4c5fe}\label{classpara_1_1detail_1_1non__blocking__promise__common_aa1180708ace276fcbf0a1dcbf0b4c5fe}} 
+\index{para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}!set\_exception@{set\_exception}}
+\index{set\_exception@{set\_exception}!para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{set\_exception()}{set\_exception()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{para\+::detail\+::non\+\_\+blocking\+\_\+promise\+\_\+common}}$<$ T $>$\+::set\+\_\+exception (\begin{DoxyParamCaption}\item[{std\+::exception\+\_\+ptr}]{ex }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets active exception. 
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classpara_1_1detail_1_1non__blocking__promise__common_a7c65e89809af299dd8f9283d898eb50a}\label{classpara_1_1detail_1_1non__blocking__promise__common_a7c65e89809af299dd8f9283d898eb50a}} 
+\index{para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}!owning\_@{owning\_}}
+\index{owning\_@{owning\_}!para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{owning\_}{owning\_}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{para\+::detail\+::non\+\_\+blocking\+\_\+promise\+\_\+common}}$<$ T $>$\+::owning\+\_\+ = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Shared state is owned by promise. 
+
+\mbox{\Hypertarget{classpara_1_1detail_1_1non__blocking__promise__common_aa36670a3781f045024669d3d657c8c3b}\label{classpara_1_1detail_1_1non__blocking__promise__common_aa36670a3781f045024669d3d657c8c3b}} 
+\index{para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}!state\_@{state\_}}
+\index{state\_@{state\_}!para::detail::non\_blocking\_promise\_common$<$ T $>$@{para::detail::non\_blocking\_promise\_common$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{state\_}{state\_}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__shared__state}{detail\+::non\+\_\+blocking\+\_\+shared\+\_\+state}}$<$T$>$$\ast$ \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{para\+::detail\+::non\+\_\+blocking\+\_\+promise\+\_\+common}}$<$ T $>$\+::state\+\_\+ = nullptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Shared result state. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/parachute/\mbox{\hyperlink{non__blocking__future_8hpp}{non\+\_\+blocking\+\_\+future.\+hpp}}\end{DoxyCompactItemize}

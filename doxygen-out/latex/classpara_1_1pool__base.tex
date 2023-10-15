@@ -1,0 +1,94 @@
+\hypertarget{classpara_1_1pool__base}{}\doxysection{para\+::pool\+\_\+base$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$ Class Template Reference}
+\label{classpara_1_1pool__base}\index{para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$@{para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$}}
+
+
+Represents a pool of 1 of workers (typically threads) which participate in executing enqueued work.  
+
+
+
+
+{\ttfamily \#include $<$pool\+\_\+base.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename... Work\+Group\+Arg\+Ts$>$ }\\\mbox{\hyperlink{classpara_1_1pool__base_a55a768904345138a53debb798b714a52}{pool\+\_\+base}} (Work\+ControlT \&\&work\+\_\+control, Work\+Group\+Arg\+Ts \&\&... work\+\_\+group\+\_\+args)
+\begin{DoxyCompactList}\small\item\em Initializes workers. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename... Work\+Group\+Arg\+Ts$>$ }\\\mbox{\hyperlink{classpara_1_1pool__base_a8d5be99e55f5ee1f3bfcd39b6b4f2d62}{pool\+\_\+base}} (Work\+Group\+Arg\+Ts \&\&... work\+\_\+group\+\_\+args)
+\begin{DoxyCompactList}\small\item\em Initializes workers. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename WorkT $>$ }\\void \mbox{\hyperlink{classpara_1_1pool__base_a40e8b451fa4a2a274650210c1167f4be}{emplace}} (WorkT \&\&work)
+\begin{DoxyCompactList}\small\item\em Enqueues new work. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpara_1_1pool__base_a42298daedad36cf2f15b2fe41479bb12}{$\sim$pool\+\_\+base}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Work\+GroupT, typename Work\+QueueT, typename Work\+ControlT$>$\newline
+class para\+::pool\+\_\+base$<$ Work\+Group\+T, Work\+Queue\+T, Work\+Control\+T $>$}
+
+Represents a pool of 1 of workers (typically threads) which participate in executing enqueued work. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpara_1_1pool__base_a55a768904345138a53debb798b714a52}\label{classpara_1_1pool__base_a55a768904345138a53debb798b714a52}} 
+\index{para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$@{para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$}!pool\_base@{pool\_base}}
+\index{pool\_base@{pool\_base}!para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$@{para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$}}
+\doxysubsubsection{\texorpdfstring{pool\_base()}{pool\_base()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename Work\+GroupT , typename Work\+QueueT , typename Work\+ControlT $>$ \\
+template$<$typename... Work\+Group\+Arg\+Ts$>$ \\
+\mbox{\hyperlink{classpara_1_1pool__base}{para\+::pool\+\_\+base}}$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$\+::\mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}} (\begin{DoxyParamCaption}\item[{Work\+ControlT \&\&}]{work\+\_\+control,  }\item[{Work\+Group\+Arg\+Ts \&\&...}]{work\+\_\+group\+\_\+args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Initializes workers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em work\+\_\+control} & controls how thread pool behavior around work completion \\
+\hline
+{\em work\+\_\+group\+\_\+args...} & arguments, other than work loop callback, used to setup work group, i.\+e. {\ttfamily Work\+GroupT\{loop\+\_\+fn, work\+\_\+group\+\_\+args...\}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpara_1_1pool__base_a8d5be99e55f5ee1f3bfcd39b6b4f2d62}\label{classpara_1_1pool__base_a8d5be99e55f5ee1f3bfcd39b6b4f2d62}} 
+\index{para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$@{para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$}!pool\_base@{pool\_base}}
+\index{pool\_base@{pool\_base}!para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$@{para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$}}
+\doxysubsubsection{\texorpdfstring{pool\_base()}{pool\_base()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Work\+GroupT , typename Work\+QueueT , typename Work\+ControlT $>$ \\
+template$<$typename... Work\+Group\+Arg\+Ts$>$ \\
+\mbox{\hyperlink{classpara_1_1pool__base}{para\+::pool\+\_\+base}}$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$\+::\mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}} (\begin{DoxyParamCaption}\item[{Work\+Group\+Arg\+Ts \&\&...}]{work\+\_\+group\+\_\+args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [explicit]}}
+
+
+
+Initializes workers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em work\+\_\+group\+\_\+args...} & arguments, other than work loop callback, used to setup work group, i.\+e. {\ttfamily Work\+GroupT\{loop\+\_\+fn, work\+\_\+group\+\_\+args...\}} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classpara_1_1pool__base_a42298daedad36cf2f15b2fe41479bb12}\label{classpara_1_1pool__base_a42298daedad36cf2f15b2fe41479bb12}} 
+\index{para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$@{para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$}!````~pool\_base@{$\sim$pool\_base}}
+\index{````~pool\_base@{$\sim$pool\_base}!para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$@{para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$pool\_base()}{~pool\_base()}}
+{\footnotesize\ttfamily template$<$typename Work\+GroupT , typename Work\+QueueT , typename Work\+ControlT $>$ \\
+\mbox{\hyperlink{classpara_1_1pool__base}{para\+::pool\+\_\+base}}$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$\+::$\sim$\mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classpara_1_1pool__base_a40e8b451fa4a2a274650210c1167f4be}\label{classpara_1_1pool__base_a40e8b451fa4a2a274650210c1167f4be}} 
+\index{para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$@{para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$}!emplace@{emplace}}
+\index{emplace@{emplace}!para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$@{para::pool\_base$<$ WorkGroupT, WorkQueueT, WorkControlT $>$}}
+\doxysubsubsection{\texorpdfstring{emplace()}{emplace()}}
+{\footnotesize\ttfamily template$<$typename Work\+GroupT , typename Work\+QueueT , typename Work\+ControlT $>$ \\
+template$<$typename WorkT $>$ \\
+void \mbox{\hyperlink{classpara_1_1pool__base}{para\+::pool\+\_\+base}}$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$\+::emplace (\begin{DoxyParamCaption}\item[{WorkT \&\&}]{work }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Enqueues new work. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/parachute/\mbox{\hyperlink{pool__base_8hpp}{pool\+\_\+base.\+hpp}}\end{DoxyCompactItemize}

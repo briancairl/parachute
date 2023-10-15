@@ -1,0 +1,71 @@
+\hypertarget{classpara_1_1work__queue__fifo}{}\doxysection{para\+::work\+\_\+queue\+\_\+fifo$<$ Work\+StorageT, Work\+Storage\+AllocatorT $>$ Class Template Reference}
+\label{classpara_1_1work__queue__fifo}\index{para::work\_queue\_fifo$<$ WorkStorageT, WorkStorageAllocatorT $>$@{para::work\_queue\_fifo$<$ WorkStorageT, WorkStorageAllocatorT $>$}}
+
+
+Represents a default, first-\/in-\/first-\/out (FIFO) work queue.  
+
+
+
+
+{\ttfamily \#include $<$fifo.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Work\+StorageT \mbox{\hyperlink{classpara_1_1work__queue__fifo_a0350e0711a4aac585aa4b6d64d669322}{pop}} ()
+\begin{DoxyCompactList}\small\item\em Returns next job to run. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename WorkT $>$ }\\void \mbox{\hyperlink{classpara_1_1work__queue__fifo_a9e0732768907239ffc0309779cc30cbb}{enqueue}} (WorkT \&\&work)
+\begin{DoxyCompactList}\small\item\em Adds new {\ttfamily work} to the queue. \end{DoxyCompactList}\item 
+constexpr bool \mbox{\hyperlink{classpara_1_1work__queue__fifo_a266dfe312228d6f4ed7df3b5cd7422d9}{empty}} () const
+\begin{DoxyCompactList}\small\item\em Returns true if queue contains no work. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename Work\+StorageT = std\+::function$<$void()$>$, typename Work\+Storage\+AllocatorT = std\+::allocator$<$\+Work\+Storage\+T$>$$>$\newline
+class para\+::work\+\_\+queue\+\_\+fifo$<$ Work\+Storage\+T, Work\+Storage\+Allocator\+T $>$}
+
+Represents a default, first-\/in-\/first-\/out (FIFO) work queue. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classpara_1_1work__queue__fifo_a266dfe312228d6f4ed7df3b5cd7422d9}\label{classpara_1_1work__queue__fifo_a266dfe312228d6f4ed7df3b5cd7422d9}} 
+\index{para::work\_queue\_fifo$<$ WorkStorageT, WorkStorageAllocatorT $>$@{para::work\_queue\_fifo$<$ WorkStorageT, WorkStorageAllocatorT $>$}!empty@{empty}}
+\index{empty@{empty}!para::work\_queue\_fifo$<$ WorkStorageT, WorkStorageAllocatorT $>$@{para::work\_queue\_fifo$<$ WorkStorageT, WorkStorageAllocatorT $>$}}
+\doxysubsubsection{\texorpdfstring{empty()}{empty()}}
+{\footnotesize\ttfamily template$<$typename Work\+StorageT  = std\+::function$<$void()$>$, typename Work\+Storage\+AllocatorT  = std\+::allocator$<$\+Work\+Storage\+T$>$$>$ \\
+constexpr bool \mbox{\hyperlink{classpara_1_1work__queue__fifo}{para\+::work\+\_\+queue\+\_\+fifo}}$<$ Work\+StorageT, Work\+Storage\+AllocatorT $>$\+::empty (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Returns true if queue contains no work. 
+
+\mbox{\Hypertarget{classpara_1_1work__queue__fifo_a9e0732768907239ffc0309779cc30cbb}\label{classpara_1_1work__queue__fifo_a9e0732768907239ffc0309779cc30cbb}} 
+\index{para::work\_queue\_fifo$<$ WorkStorageT, WorkStorageAllocatorT $>$@{para::work\_queue\_fifo$<$ WorkStorageT, WorkStorageAllocatorT $>$}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!para::work\_queue\_fifo$<$ WorkStorageT, WorkStorageAllocatorT $>$@{para::work\_queue\_fifo$<$ WorkStorageT, WorkStorageAllocatorT $>$}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily template$<$typename Work\+StorageT  = std\+::function$<$void()$>$, typename Work\+Storage\+AllocatorT  = std\+::allocator$<$\+Work\+Storage\+T$>$$>$ \\
+template$<$typename WorkT $>$ \\
+void \mbox{\hyperlink{classpara_1_1work__queue__fifo}{para\+::work\+\_\+queue\+\_\+fifo}}$<$ Work\+StorageT, Work\+Storage\+AllocatorT $>$\+::enqueue (\begin{DoxyParamCaption}\item[{WorkT \&\&}]{work }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds new {\ttfamily work} to the queue. 
+
+\mbox{\Hypertarget{classpara_1_1work__queue__fifo_a0350e0711a4aac585aa4b6d64d669322}\label{classpara_1_1work__queue__fifo_a0350e0711a4aac585aa4b6d64d669322}} 
+\index{para::work\_queue\_fifo$<$ WorkStorageT, WorkStorageAllocatorT $>$@{para::work\_queue\_fifo$<$ WorkStorageT, WorkStorageAllocatorT $>$}!pop@{pop}}
+\index{pop@{pop}!para::work\_queue\_fifo$<$ WorkStorageT, WorkStorageAllocatorT $>$@{para::work\_queue\_fifo$<$ WorkStorageT, WorkStorageAllocatorT $>$}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily template$<$typename Work\+StorageT  = std\+::function$<$void()$>$, typename Work\+Storage\+AllocatorT  = std\+::allocator$<$\+Work\+Storage\+T$>$$>$ \\
+Work\+StorageT \mbox{\hyperlink{classpara_1_1work__queue__fifo}{para\+::work\+\_\+queue\+\_\+fifo}}$<$ Work\+StorageT, Work\+Storage\+AllocatorT $>$\+::pop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns next job to run. 
+
+\begin{DoxyWarning}{Warning}
+behavior is undefined if {\ttfamily \mbox{\hyperlink{classpara_1_1work__queue__fifo_a266dfe312228d6f4ed7df3b5cd7422d9}{empty()}} == true} 
+\end{DoxyWarning}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/parachute/work\+\_\+queue/\mbox{\hyperlink{fifo_8hpp}{fifo.\+hpp}}\end{DoxyCompactItemize}

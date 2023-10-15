@@ -1,0 +1,109 @@
+\hypertarget{classpara_1_1non__blocking__future}{}\doxysection{para\+::non\+\_\+blocking\+\_\+future$<$ T $>$ Class Template Reference}
+\label{classpara_1_1non__blocking__future}\index{para::non\_blocking\_future$<$ T $>$@{para::non\_blocking\_future$<$ T $>$}}
+
+
+Represents a future value to be computed, generally in an asynchronous manner.  
+
+
+
+
+{\ttfamily \#include $<$non\+\_\+blocking\+\_\+future.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classpara_1_1non__blocking__future_a0c85d22deecac16acea01e2d1d28b7d5}{valid}} ()
+\begin{DoxyCompactList}\small\item\em Returns true if value held by future is valid. \end{DoxyCompactList}\item 
+decltype(auto) \mbox{\hyperlink{classpara_1_1non__blocking__future_a453475001445ea2a732c6ad1c60d46ff}{get}} ()
+\begin{DoxyCompactList}\small\item\em Returns held value if valid, or error. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classpara_1_1non__blocking__future_abd54c49a76c6befd797144cf65d05fc9}{non\+\_\+blocking\+\_\+future}} (const \mbox{\hyperlink{classpara_1_1non__blocking__future}{non\+\_\+blocking\+\_\+future}} \&)=delete
+\item 
+\mbox{\hyperlink{classpara_1_1non__blocking__future_a61a331bae7acca01b4e562c7290d7a1b}{non\+\_\+blocking\+\_\+future}} (\mbox{\hyperlink{classpara_1_1non__blocking__future}{non\+\_\+blocking\+\_\+future}} \&\&other)
+\item 
+\mbox{\hyperlink{classpara_1_1non__blocking__future_a0799d239e731e07b5c894a5deefe2bf5}{$\sim$non\+\_\+blocking\+\_\+future}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classpara_1_1non__blocking__future_a2497af6a3289071572b74f5f08cec97c}{detail\+::non\+\_\+blocking\+\_\+promise\+\_\+common$<$ T $>$}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class para\+::non\+\_\+blocking\+\_\+future$<$ T $>$}
+
+Represents a future value to be computed, generally in an asynchronous manner. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & held value type \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classpara_1_1non__blocking__future_abd54c49a76c6befd797144cf65d05fc9}\label{classpara_1_1non__blocking__future_abd54c49a76c6befd797144cf65d05fc9}} 
+\index{para::non\_blocking\_future$<$ T $>$@{para::non\_blocking\_future$<$ T $>$}!non\_blocking\_future@{non\_blocking\_future}}
+\index{non\_blocking\_future@{non\_blocking\_future}!para::non\_blocking\_future$<$ T $>$@{para::non\_blocking\_future$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{non\_blocking\_future()}{non\_blocking\_future()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classpara_1_1non__blocking__future}{para\+::non\+\_\+blocking\+\_\+future}}$<$ T $>$\+::\mbox{\hyperlink{classpara_1_1non__blocking__future}{non\+\_\+blocking\+\_\+future}} (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{classpara_1_1non__blocking__future}{non\+\_\+blocking\+\_\+future}}$<$ T $>$ \&}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [delete]}}
+
+\mbox{\Hypertarget{classpara_1_1non__blocking__future_a61a331bae7acca01b4e562c7290d7a1b}\label{classpara_1_1non__blocking__future_a61a331bae7acca01b4e562c7290d7a1b}} 
+\index{para::non\_blocking\_future$<$ T $>$@{para::non\_blocking\_future$<$ T $>$}!non\_blocking\_future@{non\_blocking\_future}}
+\index{non\_blocking\_future@{non\_blocking\_future}!para::non\_blocking\_future$<$ T $>$@{para::non\_blocking\_future$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{non\_blocking\_future()}{non\_blocking\_future()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classpara_1_1non__blocking__future}{para\+::non\+\_\+blocking\+\_\+future}}$<$ T $>$\+::\mbox{\hyperlink{classpara_1_1non__blocking__future}{non\+\_\+blocking\+\_\+future}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpara_1_1non__blocking__future}{non\+\_\+blocking\+\_\+future}}$<$ T $>$ \&\&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classpara_1_1non__blocking__future_a0799d239e731e07b5c894a5deefe2bf5}\label{classpara_1_1non__blocking__future_a0799d239e731e07b5c894a5deefe2bf5}} 
+\index{para::non\_blocking\_future$<$ T $>$@{para::non\_blocking\_future$<$ T $>$}!````~non\_blocking\_future@{$\sim$non\_blocking\_future}}
+\index{````~non\_blocking\_future@{$\sim$non\_blocking\_future}!para::non\_blocking\_future$<$ T $>$@{para::non\_blocking\_future$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$non\_blocking\_future()}{~non\_blocking\_future()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\mbox{\hyperlink{classpara_1_1non__blocking__future}{para\+::non\+\_\+blocking\+\_\+future}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classpara_1_1non__blocking__future}{non\+\_\+blocking\+\_\+future}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classpara_1_1non__blocking__future_a453475001445ea2a732c6ad1c60d46ff}\label{classpara_1_1non__blocking__future_a453475001445ea2a732c6ad1c60d46ff}} 
+\index{para::non\_blocking\_future$<$ T $>$@{para::non\_blocking\_future$<$ T $>$}!get@{get}}
+\index{get@{get}!para::non\_blocking\_future$<$ T $>$@{para::non\_blocking\_future$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+decltype(auto) \mbox{\hyperlink{classpara_1_1non__blocking__future}{para\+::non\+\_\+blocking\+\_\+future}}$<$ T $>$\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns held value if valid, or error. 
+
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{structpara_1_1non__blocking__future__error}{non\+\_\+blocking\+\_\+future\+\_\+error}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{classpara_1_1non__blocking__future_a0c85d22deecac16acea01e2d1d28b7d5}\label{classpara_1_1non__blocking__future_a0c85d22deecac16acea01e2d1d28b7d5}} 
+\index{para::non\_blocking\_future$<$ T $>$@{para::non\_blocking\_future$<$ T $>$}!valid@{valid}}
+\index{valid@{valid}!para::non\_blocking\_future$<$ T $>$@{para::non\_blocking\_future$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{valid()}{valid()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+bool \mbox{\hyperlink{classpara_1_1non__blocking__future}{para\+::non\+\_\+blocking\+\_\+future}}$<$ T $>$\+::valid (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns true if value held by future is valid. 
+
+
+
+\doxysubsection{Friends And Related Function Documentation}
+\mbox{\Hypertarget{classpara_1_1non__blocking__future_a2497af6a3289071572b74f5f08cec97c}\label{classpara_1_1non__blocking__future_a2497af6a3289071572b74f5f08cec97c}} 
+\index{para::non\_blocking\_future$<$ T $>$@{para::non\_blocking\_future$<$ T $>$}!detail::non\_blocking\_promise\_common$<$ T $>$@{detail::non\_blocking\_promise\_common$<$ T $>$}}
+\index{detail::non\_blocking\_promise\_common$<$ T $>$@{detail::non\_blocking\_promise\_common$<$ T $>$}!para::non\_blocking\_future$<$ T $>$@{para::non\_blocking\_future$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{detail::non\_blocking\_promise\_common$<$ T $>$}{detail::non\_blocking\_promise\_common< T >}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+friend class \mbox{\hyperlink{classpara_1_1detail_1_1non__blocking__promise__common}{detail\+::non\+\_\+blocking\+\_\+promise\+\_\+common}}$<$ T $>$\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/parachute/\mbox{\hyperlink{non__blocking__future_8hpp}{non\+\_\+blocking\+\_\+future.\+hpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,25 @@
+\hypertarget{transform_8hpp}{}\doxysection{include/parachute/algorithm/transform.hpp File Reference}
+\label{transform_8hpp}\index{include/parachute/algorithm/transform.hpp@{include/parachute/algorithm/transform.hpp}}
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$mutex$>$}\newline
+{\ttfamily \#include $<$thread$>$}\newline
+{\ttfamily \#include $<$parachute/internal/countdown\+\_\+synchronizer.\+hpp$>$}\newline
+{\ttfamily \#include $<$parachute/pool\+\_\+base.\+hpp$>$}\newline
+\doxysubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+ \mbox{\hyperlink{namespacepara}{para}}
+\item 
+ \mbox{\hyperlink{namespacepara_1_1algorithm}{para\+::algorithm}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename Work\+GroupT , typename Work\+QueueT , typename Work\+ControlT , typename Input\+It , typename Output\+It , typename Unary\+Function $>$ }\\Output\+It \mbox{\hyperlink{namespacepara_1_1algorithm_ae13cf18494788b09bc4fe93dab4dd6d2}{para\+::algorithm\+::transform}} (pool\+\_\+base$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$ \&pool, Input\+It first, Input\+It last, Output\+It out, Unary\+Function f)
+\begin{DoxyCompactList}\small\item\em Parallel version of std\+::transform which invokes a unary callback on each element of a sequence \mbox{[}first, last) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\begin{DoxyCopyright}{Copyright}
+2023-\/present Brian Cairl 
+\end{DoxyCopyright}
