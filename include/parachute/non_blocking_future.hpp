@@ -245,8 +245,9 @@ private:
  *
  * @tparam T  held value type
  */
-template <typename T> struct non_blocking_promise : public detail::non_blocking_promise_common<T>
+template <typename T> class non_blocking_promise : public detail::non_blocking_promise_common<T>
 {
+public:
   /**
    * @brief Sets value payload shared with future
    */
@@ -257,8 +258,9 @@ template <typename T> struct non_blocking_promise : public detail::non_blocking_
  * @copydock non_blocking_promise
  * @note
  */
-template <> struct non_blocking_promise<void> : public detail::non_blocking_promise_common<void>
+template <> class non_blocking_promise<void> : public detail::non_blocking_promise_common<void>
 {
+public:
   /**
    * @brief Sets ready state
    */
