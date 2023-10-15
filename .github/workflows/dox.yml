@@ -1,9 +1,8 @@
 name: Documentation
 
 on:
-  pull_request:
+  push:
     branches: [ main ]
-    types: [ closed ]
 
 jobs:
   doxygen:
@@ -11,16 +10,13 @@ jobs:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-
+    - uses: actions/checkout@v3
     - name: Install Doxygen
       run: sudo apt install doxygen graphviz
-
     - name: Run Doxygen
       run: doxygen ./Doxyfile
-
     - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@4.1.0
+      uses: JamesIves/github-pages-deploy-action@4.4.0
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         # This is the branch you wish to deploy to, for example gh-pages or docs.
