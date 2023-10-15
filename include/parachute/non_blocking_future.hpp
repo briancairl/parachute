@@ -20,12 +20,18 @@ namespace para
 template <typename T> class non_blocking_promise;
 template <typename T> class non_blocking_future;
 
+/**
+ * @brief Error codes used when throwing <code>non_blocking_future_error</code>
+ */
 enum class non_blocking_future_errc
 {
-  no_state,
-  promise_already_satisfied
+  no_state,  ///< state was already retrieved from future; or future already retrieved from promise
+  promise_already_satisfied  ///< value already set to promise
 };
 
+/**
+ * @brief Exception type thrown with <code>non_blocking_future</code> and <code>non_blocking_promise</code>
+ */
 struct non_blocking_future_error
 {
   non_blocking_future_errc error;
