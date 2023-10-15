@@ -1,0 +1,90 @@
+\hypertarget{classpara_1_1utility_1_1uninitialized}{}\doxysection{para\+::utility\+::uninitialized$<$ T $>$ Class Template Reference}
+\label{classpara_1_1utility_1_1uninitialized}\index{para::utility::uninitialized$<$ T $>$@{para::utility::uninitialized$<$ T $>$}}
+
+
+uninitialized block of data which can fit a value of type T  
+
+
+
+
+{\ttfamily \#include $<$uninitialized.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename... CTor\+Arg\+Ts$>$ }\\void \mbox{\hyperlink{classpara_1_1utility_1_1uninitialized_aac328ff1a8620e116021f0d14a868e14}{emplace}} (CTor\+Arg\+Ts \&\&... args)
+\begin{DoxyCompactList}\small\item\em Construct value. \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classpara_1_1utility_1_1uninitialized_a750836cd090dcc703d319c76f106c3ab}{get}} ()
+\begin{DoxyCompactList}\small\item\em Returns held value if valid, or null. \end{DoxyCompactList}\item 
+constexpr T $\ast$ \mbox{\hyperlink{classpara_1_1utility_1_1uninitialized_a5dc5835e7d3290b7b4ea8d59c840977c}{operator-\/$>$}} ()
+\begin{DoxyCompactList}\small\item\em Returns pointer to underlying value. \end{DoxyCompactList}\item 
+constexpr const T $\ast$ \mbox{\hyperlink{classpara_1_1utility_1_1uninitialized_ac175f61028810635ae24b1c61fbfda30}{operator-\/$>$}} () const
+\begin{DoxyCompactList}\small\item\em Returns pointer to underlying value. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$typename T$>$\newline
+class para\+::utility\+::uninitialized$<$ T $>$}
+
+uninitialized block of data which can fit a value of type T 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classpara_1_1utility_1_1uninitialized_aac328ff1a8620e116021f0d14a868e14}\label{classpara_1_1utility_1_1uninitialized_aac328ff1a8620e116021f0d14a868e14}} 
+\index{para::utility::uninitialized$<$ T $>$@{para::utility::uninitialized$<$ T $>$}!emplace@{emplace}}
+\index{emplace@{emplace}!para::utility::uninitialized$<$ T $>$@{para::utility::uninitialized$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{emplace()}{emplace()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+template$<$typename... CTor\+Arg\+Ts$>$ \\
+void \mbox{\hyperlink{classpara_1_1utility_1_1uninitialized}{para\+::utility\+::uninitialized}}$<$ T $>$\+::emplace (\begin{DoxyParamCaption}\item[{CTor\+Arg\+Ts \&\&...}]{args }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct value. 
+
+\mbox{\Hypertarget{classpara_1_1utility_1_1uninitialized_a750836cd090dcc703d319c76f106c3ab}\label{classpara_1_1utility_1_1uninitialized_a750836cd090dcc703d319c76f106c3ab}} 
+\index{para::utility::uninitialized$<$ T $>$@{para::utility::uninitialized$<$ T $>$}!get@{get}}
+\index{get@{get}!para::utility::uninitialized$<$ T $>$@{para::utility::uninitialized$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+T \mbox{\hyperlink{classpara_1_1utility_1_1uninitialized}{para\+::utility\+::uninitialized}}$<$ T $>$\+::get (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns held value if valid, or null. 
+
+\begin{DoxyWarning}{Warning}
+only valid if set() has been called 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classpara_1_1utility_1_1uninitialized_a5dc5835e7d3290b7b4ea8d59c840977c}\label{classpara_1_1utility_1_1uninitialized_a5dc5835e7d3290b7b4ea8d59c840977c}} 
+\index{para::utility::uninitialized$<$ T $>$@{para::utility::uninitialized$<$ T $>$}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!para::utility::uninitialized$<$ T $>$@{para::utility::uninitialized$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/$>$()}{operator->()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr T$\ast$ \mbox{\hyperlink{classpara_1_1utility_1_1uninitialized}{para\+::utility\+::uninitialized}}$<$ T $>$\+::operator-\/$>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Returns pointer to underlying value. 
+
+\begin{DoxyWarning}{Warning}
+only valid if set() has been called 
+\end{DoxyWarning}
+\mbox{\Hypertarget{classpara_1_1utility_1_1uninitialized_ac175f61028810635ae24b1c61fbfda30}\label{classpara_1_1utility_1_1uninitialized_ac175f61028810635ae24b1c61fbfda30}} 
+\index{para::utility::uninitialized$<$ T $>$@{para::utility::uninitialized$<$ T $>$}!operator-\/$>$@{operator-\/$>$}}
+\index{operator-\/$>$@{operator-\/$>$}!para::utility::uninitialized$<$ T $>$@{para::utility::uninitialized$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{operator-\/$>$()}{operator->()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+constexpr const T$\ast$ \mbox{\hyperlink{classpara_1_1utility_1_1uninitialized}{para\+::utility\+::uninitialized}}$<$ T $>$\+::operator-\/$>$ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [constexpr]}}
+
+
+
+Returns pointer to underlying value. 
+
+\begin{DoxyWarning}{Warning}
+only valid if set() has been called 
+\end{DoxyWarning}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+include/parachute/utility/\mbox{\hyperlink{uninitialized_8hpp}{uninitialized.\+hpp}}\end{DoxyCompactItemize}

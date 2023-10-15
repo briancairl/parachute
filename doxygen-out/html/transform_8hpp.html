@@ -78,8 +78,8 @@ $(function() {
 <div class="textblock"><code>#include &lt;algorithm&gt;</code><br />
 <code>#include &lt;mutex&gt;</code><br />
 <code>#include &lt;thread&gt;</code><br />
-<code>#include &lt;<a class="el" href="countdown__synchronizer_8hpp_source.html">parachute/internal/countdown_synchronizer.hpp</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="pool__base_8hpp_source.html">parachute/pool_base.hpp</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="countdown_8hpp_source.html">parachute/utility/countdown.hpp</a>&gt;</code><br />
 </div>
 <p><a href="transform_8hpp_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
@@ -92,10 +92,14 @@ Namespaces</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:ae13cf18494788b09bc4fe93dab4dd6d2"><td class="memTemplParams" colspan="2">template&lt;typename WorkGroupT , typename WorkQueueT , typename WorkControlT , typename InputIt , typename OutputIt , typename UnaryFunction &gt; </td></tr>
-<tr class="memitem:ae13cf18494788b09bc4fe93dab4dd6d2"><td class="memTemplItemLeft" align="right" valign="top">OutputIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacepara_1_1algorithm.html#ae13cf18494788b09bc4fe93dab4dd6d2">para::algorithm::transform</a> (pool_base&lt; WorkGroupT, WorkQueueT, WorkControlT &gt; &amp;pool, InputIt first, InputIt last, OutputIt out, UnaryFunction f)</td></tr>
-<tr class="memdesc:ae13cf18494788b09bc4fe93dab4dd6d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parallel version of std::transform which invokes a unary callback on each element of a sequence [first, last)  <a href="namespacepara_1_1algorithm.html#ae13cf18494788b09bc4fe93dab4dd6d2">More...</a><br /></td></tr>
-<tr class="separator:ae13cf18494788b09bc4fe93dab4dd6d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8baf3e1fb80951a2499ce934e1aeb0a"><td class="memTemplParams" colspan="2">template&lt;typename WorkGroupT , typename WorkQueueT , typename WorkControlT , typename InputIt , typename OutputIt , typename UnaryFunction &gt; </td></tr>
+<tr class="memitem:ab8baf3e1fb80951a2499ce934e1aeb0a"><td class="memTemplItemLeft" align="right" valign="top">OutputIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacepara_1_1algorithm.html#ab8baf3e1fb80951a2499ce934e1aeb0a">para::algorithm::transform</a> (pool_base&lt; WorkGroupT, WorkQueueT, WorkControlT &gt; &amp;pool, InputIt first, const InputIt last, OutputIt out, UnaryFunction f)</td></tr>
+<tr class="memdesc:ab8baf3e1fb80951a2499ce934e1aeb0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parallel version of std::transform which invokes a unary callback on each element of a sequence [first, last)  <a href="namespacepara_1_1algorithm.html#ab8baf3e1fb80951a2499ce934e1aeb0a">More...</a><br /></td></tr>
+<tr class="separator:ab8baf3e1fb80951a2499ce934e1aeb0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af99f4de342d7ea50591ead0eb5020db4"><td class="memTemplParams" colspan="2">template&lt;typename WorkGroupT , typename WorkQueueT , typename WorkControlT , typename InputIt , typename OutputIt , typename UnaryFunction &gt; </td></tr>
+<tr class="memitem:af99f4de342d7ea50591ead0eb5020db4"><td class="memTemplItemLeft" align="right" valign="top">OutputIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacepara_1_1algorithm.html#af99f4de342d7ea50591ead0eb5020db4">para::algorithm::transform</a> (pool_base&lt; WorkGroupT, WorkQueueT, WorkControlT &gt; &amp;pool, InputIt in_first, const InputIt in_last, OutputIt out_first, const OutputIt out_last, UnaryFunction f)</td></tr>
+<tr class="memdesc:af99f4de342d7ea50591ead0eb5020db4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parallel version of std::transform which invokes a unary callback on each element of a sequence [first, last)  <a href="namespacepara_1_1algorithm.html#af99f4de342d7ea50591ead0eb5020db4">More...</a><br /></td></tr>
+<tr class="separator:af99f4de342d7ea50591ead0eb5020db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><dl class="section copyright"><dt>Copyright</dt><dd>2023-present Brian Cairl </dd></dl>

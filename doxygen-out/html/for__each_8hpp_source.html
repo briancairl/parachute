@@ -79,8 +79,8 @@ $(function() {
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="preprocessor">#include &lt;algorithm&gt;</span></div>
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160; </div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment">// Parachute</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="countdown__synchronizer_8hpp.html">parachute/internal/countdown_synchronizer.hpp</a>&gt;</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="pool__base_8hpp.html">parachute/pool_base.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="pool__base_8hpp.html">parachute/pool_base.hpp</a>&gt;</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &lt;<a class="code" href="countdown_8hpp.html">parachute/utility/countdown.hpp</a>&gt;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
 <div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="namespacepara.html">   15</a></span>&#160;<span class="keyword">namespace </span><a class="code" href="namespacepara_1_1algorithm.html">para::algorithm</a></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;{</div>
@@ -89,22 +89,22 @@ $(function() {
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;UnaryFunction</div>
 <div class="line"><a name="l00030"></a><span class="lineno"><a class="line" href="namespacepara_1_1algorithm.html#ad09223102748d24099d4be1ac2ee1c20">   30</a></span>&#160;<a class="code" href="namespacepara_1_1algorithm.html#ad09223102748d24099d4be1ac2ee1c20">for_each</a>(<a class="code" href="classpara_1_1pool__base.html">pool_base&lt;WorkGroupT, WorkQueueT, WorkControlT&gt;</a>&amp; <a class="code" href="classpara_1_1pool__base.html">pool</a>, InputIt first, InputIt last, UnaryFunction f)</div>
 <div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;{</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="classpara_1_1internal_1_1countdown__synchronizer.html">internal::countdown_synchronizer</a> countdown{ <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(first, last)) };</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="namespacepara_1_1algorithm.html#ad09223102748d24099d4be1ac2ee1c20">std::for_each</a>(first, last, [&amp;<a class="code" href="classpara_1_1pool__base.html">pool</a>, &amp;countdown, &amp;f](<span class="keyword">auto</span>&amp;&amp; value) <span class="keyword">mutable</span> {</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classpara_1_1pool__base.html">pool</a>.<a class="code" href="classpara_1_1pool__base.html#a40e8b451fa4a2a274650210c1167f4be">emplace</a>([&amp;countdown, &amp;f, &amp;value]() {</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;  <a class="code" href="classpara_1_1utility_1_1countdown.html">utility::countdown</a> barrier{ <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(first, last)) };</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;  <a class="code" href="namespacepara_1_1algorithm.html#ad09223102748d24099d4be1ac2ee1c20">std::for_each</a>(first, last, [&amp;<a class="code" href="classpara_1_1pool__base.html">pool</a>, &amp;barrier, &amp;f](<span class="keyword">auto</span>&amp;&amp; value) <span class="keyword">mutable</span> {</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classpara_1_1pool__base.html">pool</a>.<a class="code" href="classpara_1_1pool__base.html#a40e8b451fa4a2a274650210c1167f4be">emplace</a>([&amp;barrier, &amp;f, &amp;value]() {</div>
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;      f(value);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      --countdown;</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;      --barrier;</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    });</div>
 <div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;  });</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  countdown.wait();</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  barrier.wait();</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;  <span class="keywordflow">return</span> f;</div>
 <div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;}</div>
 <div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;}  <span class="comment">// namespace para::algorithm</span></div>
-<div class="ttc" id="aclasspara_1_1internal_1_1countdown__synchronizer_html"><div class="ttname"><a href="classpara_1_1internal_1_1countdown__synchronizer.html">para::internal::countdown_synchronizer</a></div><div class="ttdoc">Waits until a count reaches zero.</div><div class="ttdef"><b>Definition:</b> countdown_synchronizer.hpp:20</div></div>
 <div class="ttc" id="aclasspara_1_1pool__base_html"><div class="ttname"><a href="classpara_1_1pool__base.html">para::pool_base</a></div><div class="ttdoc">Represents a pool of 1 of workers (typically threads) which participate in executing enqueued work.</div><div class="ttdef"><b>Definition:</b> pool_base.hpp:21</div></div>
 <div class="ttc" id="aclasspara_1_1pool__base_html_a40e8b451fa4a2a274650210c1167f4be"><div class="ttname"><a href="classpara_1_1pool__base.html#a40e8b451fa4a2a274650210c1167f4be">para::pool_base::emplace</a></div><div class="ttdeci">void emplace(WorkT &amp;&amp;work)</div><div class="ttdoc">Enqueues new work.</div><div class="ttdef"><b>Definition:</b> pool_base.hpp:76</div></div>
-<div class="ttc" id="acountdown__synchronizer_8hpp_html"><div class="ttname"><a href="countdown__synchronizer_8hpp.html">countdown_synchronizer.hpp</a></div></div>
+<div class="ttc" id="aclasspara_1_1utility_1_1countdown_html"><div class="ttname"><a href="classpara_1_1utility_1_1countdown.html">para::utility::countdown</a></div><div class="ttdoc">Waits until a count reaches zero.</div><div class="ttdef"><b>Definition:</b> countdown.hpp:20</div></div>
+<div class="ttc" id="acountdown_8hpp_html"><div class="ttname"><a href="countdown_8hpp.html">countdown.hpp</a></div></div>
 <div class="ttc" id="anamespacepara_1_1algorithm_html"><div class="ttname"><a href="namespacepara_1_1algorithm.html">para::algorithm</a></div><div class="ttdef"><b>Definition:</b> for_each.hpp:16</div></div>
 <div class="ttc" id="anamespacepara_1_1algorithm_html_ad09223102748d24099d4be1ac2ee1c20"><div class="ttname"><a href="namespacepara_1_1algorithm.html#ad09223102748d24099d4be1ac2ee1c20">para::algorithm::for_each</a></div><div class="ttdeci">UnaryFunction for_each(pool_base&lt; WorkGroupT, WorkQueueT, WorkControlT &gt; &amp;pool, InputIt first, InputIt last, UnaryFunction f)</div><div class="ttdoc">Parallel version of std::for_each which invokes a unary callback on each element of a sequence [first...</div><div class="ttdef"><b>Definition:</b> for_each.hpp:30</div></div>
 <div class="ttc" id="apool__base_8hpp_html"><div class="ttname"><a href="pool__base_8hpp.html">pool_base.hpp</a></div></div>

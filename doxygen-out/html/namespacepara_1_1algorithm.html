@@ -81,10 +81,14 @@ Functions</h2></td></tr>
 <tr class="memitem:ad09223102748d24099d4be1ac2ee1c20"><td class="memTemplItemLeft" align="right" valign="top">UnaryFunction&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacepara_1_1algorithm.html#ad09223102748d24099d4be1ac2ee1c20">for_each</a> (<a class="el" href="classpara_1_1pool__base.html">pool_base</a>&lt; WorkGroupT, WorkQueueT, WorkControlT &gt; &amp;<a class="el" href="namespacepara.html#a669efd165efc7f7d52bf49339e46eaf9">pool</a>, InputIt first, InputIt last, UnaryFunction f)</td></tr>
 <tr class="memdesc:ad09223102748d24099d4be1ac2ee1c20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parallel version of std::for_each which invokes a unary callback on each element of a sequence [first, last)  <a href="namespacepara_1_1algorithm.html#ad09223102748d24099d4be1ac2ee1c20">More...</a><br /></td></tr>
 <tr class="separator:ad09223102748d24099d4be1ac2ee1c20"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae13cf18494788b09bc4fe93dab4dd6d2"><td class="memTemplParams" colspan="2">template&lt;typename WorkGroupT , typename WorkQueueT , typename WorkControlT , typename InputIt , typename OutputIt , typename UnaryFunction &gt; </td></tr>
-<tr class="memitem:ae13cf18494788b09bc4fe93dab4dd6d2"><td class="memTemplItemLeft" align="right" valign="top">OutputIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacepara_1_1algorithm.html#ae13cf18494788b09bc4fe93dab4dd6d2">transform</a> (<a class="el" href="classpara_1_1pool__base.html">pool_base</a>&lt; WorkGroupT, WorkQueueT, WorkControlT &gt; &amp;<a class="el" href="namespacepara.html#a669efd165efc7f7d52bf49339e46eaf9">pool</a>, InputIt first, InputIt last, OutputIt out, UnaryFunction f)</td></tr>
-<tr class="memdesc:ae13cf18494788b09bc4fe93dab4dd6d2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parallel version of std::transform which invokes a unary callback on each element of a sequence [first, last)  <a href="namespacepara_1_1algorithm.html#ae13cf18494788b09bc4fe93dab4dd6d2">More...</a><br /></td></tr>
-<tr class="separator:ae13cf18494788b09bc4fe93dab4dd6d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8baf3e1fb80951a2499ce934e1aeb0a"><td class="memTemplParams" colspan="2">template&lt;typename WorkGroupT , typename WorkQueueT , typename WorkControlT , typename InputIt , typename OutputIt , typename UnaryFunction &gt; </td></tr>
+<tr class="memitem:ab8baf3e1fb80951a2499ce934e1aeb0a"><td class="memTemplItemLeft" align="right" valign="top">OutputIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacepara_1_1algorithm.html#ab8baf3e1fb80951a2499ce934e1aeb0a">transform</a> (<a class="el" href="classpara_1_1pool__base.html">pool_base</a>&lt; WorkGroupT, WorkQueueT, WorkControlT &gt; &amp;<a class="el" href="namespacepara.html#a669efd165efc7f7d52bf49339e46eaf9">pool</a>, InputIt first, const InputIt last, OutputIt out, UnaryFunction f)</td></tr>
+<tr class="memdesc:ab8baf3e1fb80951a2499ce934e1aeb0a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parallel version of std::transform which invokes a unary callback on each element of a sequence [first, last)  <a href="namespacepara_1_1algorithm.html#ab8baf3e1fb80951a2499ce934e1aeb0a">More...</a><br /></td></tr>
+<tr class="separator:ab8baf3e1fb80951a2499ce934e1aeb0a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af99f4de342d7ea50591ead0eb5020db4"><td class="memTemplParams" colspan="2">template&lt;typename WorkGroupT , typename WorkQueueT , typename WorkControlT , typename InputIt , typename OutputIt , typename UnaryFunction &gt; </td></tr>
+<tr class="memitem:af99f4de342d7ea50591ead0eb5020db4"><td class="memTemplItemLeft" align="right" valign="top">OutputIt&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacepara_1_1algorithm.html#af99f4de342d7ea50591ead0eb5020db4">transform</a> (<a class="el" href="classpara_1_1pool__base.html">pool_base</a>&lt; WorkGroupT, WorkQueueT, WorkControlT &gt; &amp;<a class="el" href="namespacepara.html#a669efd165efc7f7d52bf49339e46eaf9">pool</a>, InputIt in_first, const InputIt in_last, OutputIt out_first, const OutputIt out_last, UnaryFunction f)</td></tr>
+<tr class="memdesc:af99f4de342d7ea50591ead0eb5020db4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Parallel version of std::transform which invokes a unary callback on each element of a sequence [first, last)  <a href="namespacepara_1_1algorithm.html#af99f4de342d7ea50591ead0eb5020db4">More...</a><br /></td></tr>
+<tr class="separator:af99f4de342d7ea50591ead0eb5020db4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Function Documentation</h2>
 <a id="ad09223102748d24099d4be1ac2ee1c20"></a>
@@ -141,8 +145,8 @@ template&lt;typename WorkGroupT , typename WorkQueueT , typename WorkControlT , 
 
 </div>
 </div>
-<a id="ae13cf18494788b09bc4fe93dab4dd6d2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae13cf18494788b09bc4fe93dab4dd6d2">&#9670;&nbsp;</a></span>transform()</h2>
+<a id="ab8baf3e1fb80951a2499ce934e1aeb0a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8baf3e1fb80951a2499ce934e1aeb0a">&#9670;&nbsp;</a></span>transform() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,7 +168,7 @@ template&lt;typename WorkGroupT , typename WorkQueueT , typename WorkControlT , 
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">InputIt&#160;</td>
+          <td class="paramtype">const InputIt&#160;</td>
           <td class="paramname"><em>last</em>, </td>
         </tr>
         <tr>
@@ -200,6 +204,73 @@ template&lt;typename WorkGroupT , typename WorkQueueT , typename WorkControlT , 
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>f</dd></dl>
 <dl class="section warning"><dt>Warning</dt><dd>order of output values is not gauranteed to match input sequence </dd></dl>
+
+</div>
+</div>
+<a id="af99f4de342d7ea50591ead0eb5020db4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af99f4de342d7ea50591ead0eb5020db4">&#9670;&nbsp;</a></span>transform() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename WorkGroupT , typename WorkQueueT , typename WorkControlT , typename InputIt , typename OutputIt , typename UnaryFunction &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">OutputIt para::algorithm::transform </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classpara_1_1pool__base.html">pool_base</a>&lt; WorkGroupT, WorkQueueT, WorkControlT &gt; &amp;&#160;</td>
+          <td class="paramname"><em>pool</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">InputIt&#160;</td>
+          <td class="paramname"><em>in_first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const InputIt&#160;</td>
+          <td class="paramname"><em>in_last</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">OutputIt&#160;</td>
+          <td class="paramname"><em>out_first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const OutputIt&#160;</td>
+          <td class="paramname"><em>out_last</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">UnaryFunction&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Parallel version of std::transform which invokes a unary callback on each element of a sequence [first, last) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pool</td><td>thread pool </td></tr>
+    <tr><td class="paramname">in_first</td><td>iterator to first element in sequence </td></tr>
+    <tr><td class="paramname">in_last</td><td>iterator to one past last element in sequence </td></tr>
+    <tr><td class="paramname">out</td><td>output iterator; dereferenced value is assigned to return value of <code>f(*first)</code> </td></tr>
+    <tr><td class="paramname">f</td><td>callback to run on each element of sequence which returns an output value to assign to <code>out</code></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>f </dd></dl>
 
 </div>
 </div>

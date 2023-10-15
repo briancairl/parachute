@@ -5,7 +5,9 @@
 \item 
 {\footnotesize template$<$typename Work\+GroupT , typename Work\+QueueT , typename Work\+ControlT , typename Input\+It , typename Unary\+Function $>$ }\\Unary\+Function \mbox{\hyperlink{namespacepara_1_1algorithm_ad09223102748d24099d4be1ac2ee1c20}{for\+\_\+each}} (\mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$ \&\mbox{\hyperlink{namespacepara_a669efd165efc7f7d52bf49339e46eaf9}{pool}}, Input\+It first, Input\+It last, Unary\+Function f)
 \begin{DoxyCompactList}\small\item\em Parallel version of std\+::for\+\_\+each which invokes a unary callback on each element of a sequence \mbox{[}first, last) \end{DoxyCompactList}\item 
-{\footnotesize template$<$typename Work\+GroupT , typename Work\+QueueT , typename Work\+ControlT , typename Input\+It , typename Output\+It , typename Unary\+Function $>$ }\\Output\+It \mbox{\hyperlink{namespacepara_1_1algorithm_ae13cf18494788b09bc4fe93dab4dd6d2}{transform}} (\mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$ \&\mbox{\hyperlink{namespacepara_a669efd165efc7f7d52bf49339e46eaf9}{pool}}, Input\+It first, Input\+It last, Output\+It out, Unary\+Function f)
+{\footnotesize template$<$typename Work\+GroupT , typename Work\+QueueT , typename Work\+ControlT , typename Input\+It , typename Output\+It , typename Unary\+Function $>$ }\\Output\+It \mbox{\hyperlink{namespacepara_1_1algorithm_ab8baf3e1fb80951a2499ce934e1aeb0a}{transform}} (\mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$ \&\mbox{\hyperlink{namespacepara_a669efd165efc7f7d52bf49339e46eaf9}{pool}}, Input\+It first, const Input\+It last, Output\+It out, Unary\+Function f)
+\begin{DoxyCompactList}\small\item\em Parallel version of std\+::transform which invokes a unary callback on each element of a sequence \mbox{[}first, last) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Work\+GroupT , typename Work\+QueueT , typename Work\+ControlT , typename Input\+It , typename Output\+It , typename Unary\+Function $>$ }\\Output\+It \mbox{\hyperlink{namespacepara_1_1algorithm_af99f4de342d7ea50591ead0eb5020db4}{transform}} (\mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$ \&\mbox{\hyperlink{namespacepara_a669efd165efc7f7d52bf49339e46eaf9}{pool}}, Input\+It in\+\_\+first, const Input\+It in\+\_\+last, Output\+It out\+\_\+first, const Output\+It out\+\_\+last, Unary\+Function f)
 \begin{DoxyCompactList}\small\item\em Parallel version of std\+::transform which invokes a unary callback on each element of a sequence \mbox{[}first, last) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
@@ -35,12 +37,12 @@ Parallel version of std\+::for\+\_\+each which invokes a unary callback on each 
 \begin{DoxyReturn}{Returns}
 f 
 \end{DoxyReturn}
-\mbox{\Hypertarget{namespacepara_1_1algorithm_ae13cf18494788b09bc4fe93dab4dd6d2}\label{namespacepara_1_1algorithm_ae13cf18494788b09bc4fe93dab4dd6d2}} 
+\mbox{\Hypertarget{namespacepara_1_1algorithm_ab8baf3e1fb80951a2499ce934e1aeb0a}\label{namespacepara_1_1algorithm_ab8baf3e1fb80951a2499ce934e1aeb0a}} 
 \index{para::algorithm@{para::algorithm}!transform@{transform}}
 \index{transform@{transform}!para::algorithm@{para::algorithm}}
-\doxysubsubsection{\texorpdfstring{transform()}{transform()}}
+\doxysubsubsection{\texorpdfstring{transform()}{transform()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
 {\footnotesize\ttfamily template$<$typename Work\+GroupT , typename Work\+QueueT , typename Work\+ControlT , typename Input\+It , typename Output\+It , typename Unary\+Function $>$ \\
-Output\+It para\+::algorithm\+::transform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$ \&}]{pool,  }\item[{Input\+It}]{first,  }\item[{Input\+It}]{last,  }\item[{Output\+It}]{out,  }\item[{Unary\+Function}]{f }\end{DoxyParamCaption})}
+Output\+It para\+::algorithm\+::transform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$ \&}]{pool,  }\item[{Input\+It}]{first,  }\item[{const Input\+It}]{last,  }\item[{Output\+It}]{out,  }\item[{Unary\+Function}]{f }\end{DoxyParamCaption})}
 
 
 
@@ -65,3 +67,30 @@ f
 \begin{DoxyWarning}{Warning}
 order of output values is not gauranteed to match input sequence 
 \end{DoxyWarning}
+\mbox{\Hypertarget{namespacepara_1_1algorithm_af99f4de342d7ea50591ead0eb5020db4}\label{namespacepara_1_1algorithm_af99f4de342d7ea50591ead0eb5020db4}} 
+\index{para::algorithm@{para::algorithm}!transform@{transform}}
+\index{transform@{transform}!para::algorithm@{para::algorithm}}
+\doxysubsubsection{\texorpdfstring{transform()}{transform()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename Work\+GroupT , typename Work\+QueueT , typename Work\+ControlT , typename Input\+It , typename Output\+It , typename Unary\+Function $>$ \\
+Output\+It para\+::algorithm\+::transform (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classpara_1_1pool__base}{pool\+\_\+base}}$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$ \&}]{pool,  }\item[{Input\+It}]{in\+\_\+first,  }\item[{const Input\+It}]{in\+\_\+last,  }\item[{Output\+It}]{out\+\_\+first,  }\item[{const Output\+It}]{out\+\_\+last,  }\item[{Unary\+Function}]{f }\end{DoxyParamCaption})}
+
+
+
+Parallel version of std\+::transform which invokes a unary callback on each element of a sequence \mbox{[}first, last) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pool} & thread pool \\
+\hline
+{\em in\+\_\+first} & iterator to first element in sequence \\
+\hline
+{\em in\+\_\+last} & iterator to one past last element in sequence \\
+\hline
+{\em out} & output iterator; dereferenced value is assigned to return value of {\ttfamily f($\ast$first)} \\
+\hline
+{\em f} & callback to run on each element of sequence which returns an output value to assign to {\ttfamily out}\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+f 
+\end{DoxyReturn}

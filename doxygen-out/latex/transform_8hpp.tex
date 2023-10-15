@@ -3,8 +3,8 @@
 {\ttfamily \#include $<$algorithm$>$}\newline
 {\ttfamily \#include $<$mutex$>$}\newline
 {\ttfamily \#include $<$thread$>$}\newline
-{\ttfamily \#include $<$parachute/internal/countdown\+\_\+synchronizer.\+hpp$>$}\newline
 {\ttfamily \#include $<$parachute/pool\+\_\+base.\+hpp$>$}\newline
+{\ttfamily \#include $<$parachute/utility/countdown.\+hpp$>$}\newline
 \doxysubsection*{Namespaces}
 \begin{DoxyCompactItemize}
 \item 
@@ -15,7 +15,9 @@
 \doxysubsection*{Functions}
 \begin{DoxyCompactItemize}
 \item 
-{\footnotesize template$<$typename Work\+GroupT , typename Work\+QueueT , typename Work\+ControlT , typename Input\+It , typename Output\+It , typename Unary\+Function $>$ }\\Output\+It \mbox{\hyperlink{namespacepara_1_1algorithm_ae13cf18494788b09bc4fe93dab4dd6d2}{para\+::algorithm\+::transform}} (pool\+\_\+base$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$ \&pool, Input\+It first, Input\+It last, Output\+It out, Unary\+Function f)
+{\footnotesize template$<$typename Work\+GroupT , typename Work\+QueueT , typename Work\+ControlT , typename Input\+It , typename Output\+It , typename Unary\+Function $>$ }\\Output\+It \mbox{\hyperlink{namespacepara_1_1algorithm_ab8baf3e1fb80951a2499ce934e1aeb0a}{para\+::algorithm\+::transform}} (pool\+\_\+base$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$ \&pool, Input\+It first, const Input\+It last, Output\+It out, Unary\+Function f)
+\begin{DoxyCompactList}\small\item\em Parallel version of std\+::transform which invokes a unary callback on each element of a sequence \mbox{[}first, last) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename Work\+GroupT , typename Work\+QueueT , typename Work\+ControlT , typename Input\+It , typename Output\+It , typename Unary\+Function $>$ }\\Output\+It \mbox{\hyperlink{namespacepara_1_1algorithm_af99f4de342d7ea50591ead0eb5020db4}{para\+::algorithm\+::transform}} (pool\+\_\+base$<$ Work\+GroupT, Work\+QueueT, Work\+ControlT $>$ \&pool, Input\+It in\+\_\+first, const Input\+It in\+\_\+last, Output\+It out\+\_\+first, const Output\+It out\+\_\+last, Unary\+Function f)
 \begin{DoxyCompactList}\small\item\em Parallel version of std\+::transform which invokes a unary callback on each element of a sequence \mbox{[}first, last) \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
