@@ -23,7 +23,7 @@ add_subdirectory(${CMAKE_CURRENT_BINARY_DIR}/googletest-src
                  ${CMAKE_CURRENT_BINARY_DIR}/googletest-build
                  EXCLUDE_FROM_ALL)
 
-file(GLOB UNIT_TEST_FILES "unit/**.cpp")
+file(GLOB UNIT_TEST_FILES "unit/**.cpp" "unit/algorithm/**.cpp")
 
 foreach(FILE ${UNIT_TEST_FILES})
     get_filename_component(TEST_CASE ${FILE} NAME_WE)

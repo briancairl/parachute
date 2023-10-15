@@ -20,17 +20,17 @@
 using namespace para;
 
 
-template <typename T> class WorkerPoolTestSuite : public ::testing::Test
+template <typename T> class PoolTestSuite : public ::testing::Test
 {
 public:
 };
 
-using WorkerPoolTestSuiteTypes =
+using PoolTestSuiteTypes =
   ::testing::Types<worker, worker_strict, static_pool<4>, static_pool_strict<4>, pool, pool_strict>;
 
-TYPED_TEST_SUITE(WorkerPoolTestSuite, WorkerPoolTestSuiteTypes);
+TYPED_TEST_SUITE(PoolTestSuite, PoolTestSuiteTypes);
 
-TYPED_TEST(WorkerPoolTestSuite, EmplaceAndDtor)
+TYPED_TEST(PoolTestSuite, EmplaceAndDtor)
 {
   using pool_type = TypeParam;
 
@@ -39,7 +39,7 @@ TYPED_TEST(WorkerPoolTestSuite, EmplaceAndDtor)
   wp.emplace([] { ::std::this_thread::sleep_for(std::chrono::milliseconds(1)); });
 }
 
-TYPED_TEST(WorkerPoolTestSuite, Post)
+TYPED_TEST(PoolTestSuite, Post)
 {
   using pool_type = TypeParam;
 
@@ -61,7 +61,7 @@ TYPED_TEST(WorkerPoolTestSuite, Post)
   }
 }
 
-TYPED_TEST(WorkerPoolTestSuite, PostVoid)
+TYPED_TEST(PoolTestSuite, PostVoid)
 {
   using pool_type = TypeParam;
 
@@ -83,7 +83,7 @@ TYPED_TEST(WorkerPoolTestSuite, PostVoid)
   }
 }
 
-TYPED_TEST(WorkerPoolTestSuite, PostBlocking)
+TYPED_TEST(PoolTestSuite, PostBlocking)
 {
   using pool_type = TypeParam;
 
