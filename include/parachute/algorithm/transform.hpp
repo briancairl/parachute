@@ -81,19 +81,17 @@ OutputIt transform(
   const OutputIt out_last,
   UnaryFunction f)
 {
-  utility::countdown barrier{ std::min(
+  const auto n = std::min(
     static_cast<std::size_t>(std::distance(in_first, in_last)),
-    static_cast<std::size_t>(std::distance(out_first, out_last))) };
-  std::for_each(in_first, in_last, [&pool, &barrier, &out_first, &f](auto&& value) mutable {
-    if (barrier.valid())
-    {
-      auto& out = *out_first;
-      pool.emplace([&barrier, &out, &f, &value]() mutable {
-        out = f(value);
-        --barrier;
-      });
-      ++out_first;
-    }
+    static_cast<std::size_t>(std::distance(out_first, out_last)));
+  utility::countdown barrier{ n };
+  std::for_each(in_first, std::next(in_first, n), [&pool, &barrier, &out_first, &f](auto&& value) mutable {
+    auto& out = *out_first;
+    pool.emplace([&barrier, &out, &f, &value]() mutable {
+      out = f(value);
+      --barrier;
+    });
+    ++out_first;
   });
   barrier.wait();
   return out_first;
