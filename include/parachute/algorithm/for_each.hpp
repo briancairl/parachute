@@ -9,8 +9,8 @@
 #include <algorithm>
 
 // Parachute
-#include <parachute/internal/countdown_synchronizer.hpp>
 #include <parachute/pool_base.hpp>
+#include <parachute/utility/countdown.hpp>
 
 namespace para::algorithm
 {
@@ -29,14 +29,14 @@ template <typename WorkGroupT, typename WorkQueueT, typename WorkControlT, typen
 UnaryFunction
 for_each(pool_base<WorkGroupT, WorkQueueT, WorkControlT>& pool, InputIt first, InputIt last, UnaryFunction f)
 {
-  internal::countdown_synchronizer countdown{ static_cast<std::size_t>(std::distance(first, last)) };
-  std::for_each(first, last, [&pool, &countdown, &f](auto&& value) mutable {
-    pool.emplace([&countdown, &f, &value]() {
+  utility::countdown barrier{ static_cast<std::size_t>(std::distance(first, last)) };
+  std::for_each(first, last, [&pool, &barrier, &f](auto&& value) mutable {
+    pool.emplace([&barrier, &f, &value]() {
       f(value);
-      --countdown;
+      --barrier;
     });
   });
-  countdown.wait();
+  barrier.wait();
   return f;
 }
 

@@ -22,6 +22,8 @@ Documentation for the latest version available [here](https://briancairl.github.
 
 ## Running tests
 
+### Clean rebuild and test
+
 ```bash
-rm -rf build && mkdir build && cd build && cmake .. -DPARA_ENABLE_TESTING:bool=on && make && ctest -V && cd ..
+rm -rf build; (mkdir build && cd build && cmake .. -DPARA_ENABLE_TESTING:bool=on && make && ctest -V); cd ..
 ```

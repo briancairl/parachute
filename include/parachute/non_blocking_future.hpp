@@ -12,6 +12,9 @@
 #include <mutex>
 #include <type_traits>
 
+// Parachute
+#include <parachute/utility/uninitialized.hpp>
+
 namespace para
 {
 template <typename T> class non_blocking_promise;
@@ -114,31 +117,27 @@ public:
   void set(T&& result) noexcept(false)
   {
     std::lock_guard lock{ result_mutex_ };
-    new (data()) T{ std::move(result) };
+    result_value_.emplace(std::move(result));
     result_signal_.set();
   }
 
   /**
    * @brief Returns held value if valid, or null
    */
-  T get() noexcept(false)
+  T get()
   {
     std::lock_guard lock{ result_mutex_ };
-    T result_returned{ std::move(*data()) };
-    data()->~T();
     result_signal_.get();
-    return result_returned;
+    return result_value_.get();
   }
 
 private:
-  /// Returns held value pointer
-  T* data() { return reinterpret_cast<T*>(result_data_); }
   /// Indicates if result is ready or not
   non_blocking_shared_state<void> result_signal_;
   /// Protects shared result state between threads of execution
   std::mutex result_mutex_;
   /// Held result value
-  alignas(T) std::byte result_data_[sizeof(T)];
+  utility::uninitialized<T> result_value_;
 };
 
 /**

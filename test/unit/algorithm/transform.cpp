@@ -18,7 +18,7 @@
 using namespace para;
 
 
-TEST(ForEach, EmptySequence)
+TEST(TransformUnordered, EmptySequence)
 {
   using pool_type = worker;
 
@@ -40,7 +40,7 @@ TEST(ForEach, EmptySequence)
 }
 
 
-TEST(ForEach, FullSequence)
+TEST(TransformUnordered, FullSequence)
 {
   using pool_type = static_pool<4>;
 
@@ -59,4 +59,79 @@ TEST(ForEach, FullSequence)
 
   std::sort(transformed_sequence.begin(), transformed_sequence.end());
   EXPECT_EQ(transformed_sequence, expected_sequence);
+}
+
+
+TEST(TransformOrdered, EmptySequence)
+{
+  using pool_type = static_pool<4>;
+
+  pool_type wp;
+
+  const std::vector<double> original_sequence = {};
+
+  std::vector<double> expected_sequence = original_sequence;
+  std::for_each(expected_sequence.begin(), expected_sequence.end(), [](double& v) { v *= 2; });
+
+  std::vector<double> transformed_sequence;
+  transformed_sequence.resize(original_sequence.size());
+  algorithm::transform(
+    wp,
+    original_sequence.begin(),
+    original_sequence.end(),
+    transformed_sequence.begin(),
+    transformed_sequence.end(),
+    [](double v) { return v * 2; });
+
+  EXPECT_EQ(transformed_sequence, expected_sequence);
+}
+
+
+TEST(TransformOrdered, FullSequence)
+{
+  using pool_type = static_pool<4>;
+
+  pool_type wp;
+
+  const std::vector<double> original_sequence = { 1, 2, 3, 4, 5, 6 };
+
+  std::vector<double> expected_sequence = original_sequence;
+  std::for_each(expected_sequence.begin(), expected_sequence.end(), [](double& v) { v *= 2; });
+
+  std::vector<double> transformed_sequence;
+  transformed_sequence.resize(original_sequence.size());
+  algorithm::transform(
+    wp,
+    original_sequence.begin(),
+    original_sequence.end(),
+    transformed_sequence.begin(),
+    transformed_sequence.end(),
+    [](double v) { return v * 2; });
+
+  EXPECT_EQ(transformed_sequence, expected_sequence);
+}
+
+
+TEST(TransformOrdered, UndersizedOupoutSequence)
+{
+  using pool_type = static_pool<4>;
+
+  pool_type wp;
+
+  const std::vector<double> original_sequence = { 1, 2, 3, 4, 5, 6 };
+
+  std::vector<double> expected_sequence = original_sequence;
+  std::for_each(expected_sequence.begin(), expected_sequence.end(), [](double& v) { v *= 2; });
+
+  std::vector<double> transformed_sequence;
+  transformed_sequence.resize(original_sequence.size() / 2 + 1);
+  algorithm::transform(
+    wp,
+    original_sequence.begin(),
+    original_sequence.end(),
+    transformed_sequence.begin(),
+    transformed_sequence.end(),
+    [](double v) { return v * 2; });
+
+  EXPECT_NE(transformed_sequence, expected_sequence);
 }

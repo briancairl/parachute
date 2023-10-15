@@ -1,7 +1,7 @@
 /**
  * @copyright 2023-present Brian Cairl
  *
- * @file countdown_synchronizer.hpp
+ * @file countdown.hpp
  */
 #pragma once
 
@@ -10,23 +10,23 @@
 #include <mutex>
 #include <thread>
 
-namespace para::internal
+namespace para::utility
 {
 
 /**
  * @brief Waits until a count reaches zero
  */
-class countdown_synchronizer
+class countdown
 {
 public:
-  explicit countdown_synchronizer(std::size_t n) : count_{ n } {}
+  explicit countdown(std::size_t n) : count_{ n } {}
 
-  countdown_synchronizer& operator--()
+  countdown& operator--()
   {
     return decrement([] {});
   }
 
-  template <typename FnT> countdown_synchronizer& decrement(FnT f)
+  template <typename FnT> countdown& decrement(FnT f)
   {
     std::lock_guard lock{ count_mutex_ };
     f();
@@ -44,10 +44,12 @@ public:
     }
   }
 
+  constexpr bool valid() const { return count_ > 0; }
+
 private:
   std::size_t count_;
   std::mutex count_mutex_;
   std::condition_variable count_cv_;
 };
 
-}  // namespace para::internal
+}  // namespace para::utility
