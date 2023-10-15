@@ -127,25 +127,23 @@ $(function() {
 <div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  <span class="keyword">const</span> OutputIt out_last,</div>
 <div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;  UnaryFunction f)</div>
 <div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;{</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <a class="code" href="classpara_1_1utility_1_1countdown.html">utility::countdown</a> barrier{ std::min(</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;  <span class="keyword">const</span> <span class="keyword">auto</span> n = std::min(</div>
 <div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(in_first, in_last)),</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(out_first, out_last))) };</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="namespacepara_1_1algorithm.html#ad09223102748d24099d4be1ac2ee1c20">std::for_each</a>(in_first, in_last, [&amp;<a class="code" href="classpara_1_1pool__base.html">pool</a>, &amp;barrier, &amp;out_first, &amp;f](<span class="keyword">auto</span>&amp;&amp; value) <span class="keyword">mutable</span> {</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">if</span> (barrier.valid())</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    {</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;      auto&amp; out = *out_first;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      pool.emplace([&amp;barrier, &amp;out, &amp;f, &amp;value]() mutable {</div>
-<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;        out = f(value);</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;        --barrier;</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;      });</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;      ++out_first;</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    }</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  });</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;  barrier.wait();</div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;  <span class="keywordflow">return</span> out_first;</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160; </div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}  <span class="comment">// namespace para::algorithm</span></div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">static_cast&lt;</span>std::size_t<span class="keyword">&gt;</span>(std::distance(out_first, out_last)));</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;  <a class="code" href="classpara_1_1utility_1_1countdown.html">utility::countdown</a> barrier{ n };</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;  <a class="code" href="namespacepara_1_1algorithm.html#ad09223102748d24099d4be1ac2ee1c20">std::for_each</a>(in_first, std::next(in_first, n), [&amp;<a class="code" href="classpara_1_1pool__base.html">pool</a>, &amp;barrier, &amp;out_first, &amp;f](<span class="keyword">auto</span>&amp;&amp; value) <span class="keyword">mutable</span> {</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keyword">auto</span>&amp; out = *out_first;</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <a class="code" href="classpara_1_1pool__base.html">pool</a>.<a class="code" href="classpara_1_1pool__base.html#a40e8b451fa4a2a274650210c1167f4be">emplace</a>([&amp;barrier, &amp;out, &amp;f, &amp;value]() <span class="keyword">mutable</span> {</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;      out = f(value);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;      --barrier;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    });</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    ++out_first;</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  });</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;  barrier.wait();</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;  <span class="keywordflow">return</span> out_first;</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;}</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}  <span class="comment">// namespace para::algorithm</span></div>
 <div class="ttc" id="aclasspara_1_1pool__base_html"><div class="ttname"><a href="classpara_1_1pool__base.html">para::pool_base</a></div><div class="ttdoc">Represents a pool of 1 of workers (typically threads) which participate in executing enqueued work.</div><div class="ttdef"><b>Definition:</b> pool_base.hpp:21</div></div>
 <div class="ttc" id="aclasspara_1_1pool__base_html_a40e8b451fa4a2a274650210c1167f4be"><div class="ttname"><a href="classpara_1_1pool__base.html#a40e8b451fa4a2a274650210c1167f4be">para::pool_base::emplace</a></div><div class="ttdeci">void emplace(WorkT &amp;&amp;work)</div><div class="ttdoc">Enqueues new work.</div><div class="ttdef"><b>Definition:</b> pool_base.hpp:76</div></div>
 <div class="ttc" id="aclasspara_1_1utility_1_1countdown_html"><div class="ttname"><a href="classpara_1_1utility_1_1countdown.html">para::utility::countdown</a></div><div class="ttdoc">Waits until a count reaches zero.</div><div class="ttdef"><b>Definition:</b> countdown.hpp:20</div></div>
